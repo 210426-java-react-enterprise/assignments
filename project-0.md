@@ -3,8 +3,12 @@ For Project 0, you will be building a console-based banking application. Present
 ## User Stories
 As a user, I can:
 - [ ] register a new user account with the system (must be secured with a password)
+    -- what hashing algorithm for password?
+    -- what are password constraints?
+    -- what are user name constraints?
 - [ ] login with my existing credentials
 - [ ] create at least one account
+    -- should I create by default checking and savings account?
 - [ ] deposit funds into an account (use doubles, not ints)
 - [ ] withdraw funds from an account (no overdrafting!)
 - [ ] view the balance of my account(s) (all balance displays must be in proper currency format)
@@ -13,6 +17,7 @@ As a user I can:
 - [ ] view the transaction history for an account
 - [ ] create multiple accounts per user (checking, savings, etc.)
 - [ ] share a joint account with another user
+    -- how am I going to implement this workflow
 - [ ] transfer money between accounts
 ## Minimum Features
 - [ ] Basic validation (no negative deposits/withdrawals, no overdrafting, etc.) 
