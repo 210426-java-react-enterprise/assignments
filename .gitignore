@@ -25,3 +25,7 @@ hs_err_pid*
 # Build folders
 target/
 
+#Disable Upkeep of idea specific files and folders
+.idea/
+*.iml
+
