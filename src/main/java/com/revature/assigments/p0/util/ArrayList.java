@@ -1,62 +1,96 @@
 package com.revature.assigments.p0.util;
 
-public class ArrayList<T> implements List<T>{
+public class ArrayList<T> implements List<T> {
 
-    private final int default_array_size = 10;
-    private int size;
-    Iterator[] iteArray;
+    private final int defaultArraySize = 9;
+    private int arraySize = defaultArraySize;
+    private int size=0;
+    private Iterator[] iteArray = new Iterator[defaultArraySize];
 
-    ArrayList(){
-
-    }
 
     @Override
-    public void add(T data) throws NullPointerException {
-        try{
-            if (size == 0){
-                iteArray[0].data = data;
+    public void add(T data) throws IllegalArgumentException {
+
+        if (data == null) {
+            throw new IllegalArgumentException("This Array List does not accept null values");
+        } else {
+            if (size == 0) {
+                iteArray[size] = new Iterator(data);
+                System.out.println("Testing Add Method>> " + iteArray[size].data);
                 size++;
-            }else{
+            } else{
+                for (int i = 0; i < defaultArraySize; i++) {
+                    if(iteArray[i] == null){
+                        iteArray[i] = new Iterator(data);
+                        System.out.println("Testing Add Method >> " + i);
+                        iteArray[i].data = data;
+                        break;
+                    }
+
+                }
 
             }
-        }catch(NullPointerException e){
-            e.printStackTrace();
         }
     }
 
-    @Override
-    public T pop() {
-        return null;
-    }
+        @Override
+        public T pop () {
+            return null;
+        }
 
-    @Override
-    public T get(int index) {
-        return null;
-    }
+        @Override
+        public T get ( int index){
+            return null;
+        }
 
-    @Override
-    public boolean constains(T data) {
-        return false;
-    }
+        @Override
+        public boolean constains (T data){
+            return false;
+        }
 
-    @Override
-    public int size() {
-        return 0;
-    }
+        @Override
+        public int size () {
 
-    @Override
-    public void sort(T data) {
+            int evalSize = 0;
 
-    }
+            while( iteArray[evalSize]!= null){
+                evalSize++;
+            }
 
-    private static class Iterator<T>{
+            /*
+            for (int i = 0; i < iteArray.length ; i++) {
+                System.out.println(i);
+                if(iteArray[i].data != null){
+                    eval_size++;
+                }
+            }
+            */
+            System.out.println("Testing Size Method >> " + evalSize);
+            return evalSize;
+        }
 
-        T data;
+        @Override
+        public void sort (T data){
 
-        Iterator(T data){
-            this.data = data;
+        }
+
+        /*
+        private Iterator[] grow(Iterator[] IteArray){
+            int newSize = arraySize*2;
+            Iterator[] newIteArray = new Iterator[newSize];
+            newIteArray.
+
+        }
+        */
+
+        private static class Iterator<T>{
+
+            T data;
+
+            Iterator(T data) {
+                this.data = data;
+            }
+
         }
 
     }
-
-}
