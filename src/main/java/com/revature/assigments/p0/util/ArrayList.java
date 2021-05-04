@@ -7,7 +7,7 @@ public class ArrayList<T> implements List<T>{
     Iterator[] iteArray;
 
     ArrayList(){
-        
+
     }
 
     @Override
