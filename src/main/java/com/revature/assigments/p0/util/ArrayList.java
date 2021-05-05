@@ -16,14 +16,15 @@ public class ArrayList<T> implements List<T> {
         } else {
             if (size == 0) {
                 iteArray[size] = new Iterator(data);
-                System.out.println("Testing Add Method>> " + iteArray[size].data);
+                //System.out.println("Testing Add Method>> " + iteArray[size].data);
                 size++;
             } else{
                 for (int i = 0; i < defaultArraySize; i++) {
                     if(iteArray[i] == null){
                         iteArray[i] = new Iterator(data);
-                        System.out.println("Testing Add Method >> " + i);
+                       // System.out.println("Testing Add Method >> " + i);
                         iteArray[i].data = data;
+                        size++;
                         break;
                     }
 
@@ -33,17 +34,31 @@ public class ArrayList<T> implements List<T> {
         }
     }
 
-        @Override
-        public T pop () {
-            return null;
-        }
+
 
         @Override
-        public T get ( int index){
-            return null;
+        public T get ( int index) {
+            T dataToReturn;
+            if (index > size){
+                throw new IllegalArgumentException("The provided index would be out bounds" + size);
+            }else{
+                if(size == 0){
+                    dataToReturn = null;
+                }else{
+                    dataToReturn = (T) iteArray[index].data;
+                }
+
+                return dataToReturn;
+            }
+
         }
 
-        @Override
+    @Override
+    public T remove(int index) {
+        return null;
+    }
+
+    @Override
         public boolean constains (T data){
             return false;
         }
@@ -54,6 +69,8 @@ public class ArrayList<T> implements List<T> {
             int evalSize = 0;
 
             while( iteArray[evalSize]!= null){
+                if(evalSize ==0)evalSize=1;
+
                 evalSize++;
             }
 
@@ -65,7 +82,7 @@ public class ArrayList<T> implements List<T> {
                 }
             }
             */
-            System.out.println("Testing Size Method >> " + evalSize);
+            //System.out.println("Testing Size Method >> " + evalSize);
             return evalSize;
         }
 
