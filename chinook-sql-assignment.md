@@ -1,5 +1,4 @@
 # Revature Associate SQL Workbook
-
  
 ## Part I – Working with an existing database
 
@@ -7,7 +6,7 @@
 
 In this section you will begin the process of working with the Chinook database
 
-Task – Set up the Chinook DB by executing the script found here
+Task – Set up the Chinook DB by executing the script found [here](https://raw.githubusercontent.com/lerocha/chinook-database/master/ChinookDatabase/DataSources/Chinook_PostgreSql.sql)
 
 ### 2.0 SQL Queries
 In this section you will be performing various queries against the Oracle Chinook database.
