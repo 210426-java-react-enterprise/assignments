@@ -13,20 +13,26 @@ In this section you will be performing various queries against the Oracle Chinoo
 
 ### 2.1 SELECT
 Task – Select all records from the Employee table. 
+
 Task – Select all records from the Employee table where last name is King.
+
 Task – Select all records from the Employee table where first name is Andrew and REPORTSTO is NULL.
 
 ### 2.2 ORDER BY
 Task – Select all albums in album table and sort result set in descending order
+
 Task – Select first name from Customer and sort result set in ascending order
 
 ### 2.3 INSERT INTO
 Task – Insert two new records into Genre table
+
 Task – Insert two new records into Employee table
+
 Task – Insert two new records into Customer table
 
 ### 2.4 UPDATE
 Task – Update Aaron Mitchell in Customer table to Robert Walter
+
 Task – Update name of artist “Creedence Clearwater Revival” to “CCR”
 
 ### 2.5 LIKE
@@ -34,6 +40,7 @@ Task – Select all invoices with a billing address like “T”
 
 ### 2.6 BETWEEN
 Task – Select all invoices that have a total between 15 and 50
+
 Task – Select all employees hired between 1st of June 2003 and 1st of March 2004
 
 ### 2.7 DELETE
@@ -45,10 +52,12 @@ In this section you will be using the PostGreSQL system functions, as well as yo
 
 ### 3.1 System Defined Functions
 Task – Create a function that returns the current time.
+
 Task – create a function that returns the length of a mediatype from the mediatype table
 
 ### 3.2 System Defined Aggregate Functions
 Task –Create a function that returns the average total of all invoices
+
 Task – Create a function that returns the most expensive track
 
 ### 3.3 User Defined Scalar Functions
