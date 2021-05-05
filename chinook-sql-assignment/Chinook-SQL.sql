@@ -22,3 +22,6 @@ insert into "Customer" values (60, 'Giancarlo', 'Tomasello', 'Revature', '123 Ca
 --2.4 Update 
 update "Customer" set "FirstName" = 'Robert', "LastName" = 'Walter' where "FirstName" = 'Aaron' and "LastName" = 'Mitchell';
 update "Artist" set "Name" = 'CCR' where "Name" = 'Creedence Clearwater Revival';
+
+--2.5 Like
+select * from "Invoice" where "BillingAddress" like 'T%';
