@@ -29,3 +29,24 @@ select * from "Invoice" where "BillingAddress" like 'T%';
 --2.6 Between
 select * from "Invoice" where "Total" between 15 and 50;
 select * from "Employee" where "HireDate" between '2003-06-01 00:00:00' and '2004-03-01 00:00:00';
+
+--2.7 Delete
+
+--To delete Rober Walter you need to delete all his associated rows in the forein tables
+
+--At the deepest level all these Invoice Ids were associated with the customerID 32. These need to be deleted
+delete from "InvoiceLine" where "InvoiceId" = 50;
+delete from "InvoiceLine" where "InvoiceId" = 61;
+delete from "InvoiceLine" where "InvoiceId" = 116;
+delete from "InvoiceLine" where "InvoiceId" = 245;
+delete from "InvoiceLine" where "InvoiceId" = 268;
+delete from "InvoiceLine" where "InvoiceId" = 290;
+delete from "InvoiceLine" where "InvoiceId" = 342;
+
+--CustomerID 32 is associated with Robert Walter so it, and it's dependencies need to be deleted
+delete from "Invoice" where "CustomerId" = 32;
+
+--Once all the above filed are deleted you can now delete Robert Walter from the table
+delete from "Customer" where "FirstName" = 'Robert' and "LastName" = 'Walter';
+
+
