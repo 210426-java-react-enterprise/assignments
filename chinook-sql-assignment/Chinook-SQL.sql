@@ -3,3 +3,5 @@
 
 --2.1
 select * from "Employee";
+select * from "Employee" where "LastName" = 'King';
+select * from "Employee" where "FirstName" = 'Andrew' and "ReportsTo" is NULL;
