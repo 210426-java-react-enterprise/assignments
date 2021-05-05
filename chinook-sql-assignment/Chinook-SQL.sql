@@ -16,3 +16,6 @@ insert into "Employee" values (11, 'Barack', 'Obama'), (10, 'Lincoln', 'Abraham'
 insert into "Customer" values (60, 'Giancarlo', 'Tomasello', 'Revature', '123 California Way', 'San Jose', 'CA', 'USA', null, null, null, 'gtomasel@mail.com'), 
 (61, 'Singleton', 'Wezely', 'Revature', '456 Floridian Drive', 'Florida Town', 'FL', 'USA', null, null, null, 'WSingelton@mail.com');
 
+--2.4 Update 
+update "Customer" set "FirstName" = 'Robert', "LastName" = 'Walter' where "FirstName" = 'Aaron' and "LastName" = 'Mitchell';
+update "Artist" set "Name" = 'CCR' where "Name" = 'Creedence Clearwater Revival';
