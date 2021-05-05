@@ -25,3 +25,7 @@ update "Artist" set "Name" = 'CCR' where "Name" = 'Creedence Clearwater Revival'
 
 --2.5 Like
 select * from "Invoice" where "BillingAddress" like 'T%';
+
+--2.6 Between
+select * from "Invoice" where "Total" between 15 and 50;
+select * from "Employee" where "HireDate" between '2003-06-01 00:00:00' and '2004-03-01 00:00:00';
