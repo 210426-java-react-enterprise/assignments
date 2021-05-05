@@ -1,5 +1,9 @@
 package com.revature.assigments.p0.util;
 
+/**
+ * A basic implementation of a ArrayList
+ * @param <T>
+ */
 public class ArrayList<T> implements List<T> {
 
     private final int defaultArraySize = 9;
