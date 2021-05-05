@@ -23,7 +23,9 @@ public class LandingScreen extends Screen {
 
         try{
             System.out.println(">> ");
-            String userSelection =
+            //String userSelection =
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

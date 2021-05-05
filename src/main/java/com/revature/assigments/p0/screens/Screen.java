@@ -5,7 +5,7 @@ package com.revature.assigments.p0.screens;
  */
 public abstract class Screen {
 
-    protected String
+    //protected String;
 
     public abstract void render();
     
