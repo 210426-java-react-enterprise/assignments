@@ -12,7 +12,13 @@ public class ScreenRouter {
 
     public void navigate(String route){
         for (int i = 0; i < screens.size() ; i++) {
-            Screen screen = screens.get(i);
+            System.out.println("i =" +i);
+            if(screens[i] != null){
+                Screen screen = screens.get(i);
+                if (screen.getRoute().equals(route)){ // Obj1 > String from getRoute --- Obj2 > String from route and getting a boolean this methods belongs to Object Class
+                    screen.render();
+                }
+            }
 
         }
     }
