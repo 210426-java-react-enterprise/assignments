@@ -87,9 +87,7 @@ where firstname = 'Robert' and lastname = 'Walter';
 
 --PROPER SOLUTION:
 	--???
-alter table customer
-drop constraint fk_customersupportrepid,
-add constraint fk_customersupportrepid
+
 
 -- 3.0 SQL Functions
 
