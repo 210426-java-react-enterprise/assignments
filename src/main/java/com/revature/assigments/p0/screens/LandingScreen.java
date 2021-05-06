@@ -14,7 +14,7 @@ public class LandingScreen extends Screen {
     private ScreenRouter router;
 
     public LandingScreen(BufferedReader consoleReader, ScreenRouter router) {
-        super("LandingScreen","/landingscrenn");
+        super("LandingScreen","/landingScreen");
         this.consoleReader = consoleReader;
         this.router = router;
     }
@@ -35,7 +35,7 @@ public class LandingScreen extends Screen {
             switch (userSelection){
                 case "1": //Sign Up
                     System.out.println("Navigating >>>> Sign Up Screen");
-                    router.navigate("/signup");
+                    router.navigate("/signUp");
                     break;
                 case "2": //Sign In
 

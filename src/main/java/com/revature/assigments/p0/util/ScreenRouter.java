@@ -11,13 +11,14 @@ public class ScreenRouter {
     }
 
     public void navigate(String route){
-        for (int i = 0; i < screens.size() ; i++) {
-            System.out.println("i =" +i);
-            if(screens[i] != null){
-                Screen screen = screens.get(i);
-                if (screen.getRoute().equals(route)){ // Obj1 > String from getRoute --- Obj2 > String from route and getting a boolean this methods belongs to Object Class
-                    screen.render();
-                }
+        int arraySize = screens.size() - 1;
+        //System.out.println("Var arraySize >>> "+ arraySize);
+        for (int i = 0; i < arraySize ; i++) {
+            //System.out.println("i >>> " +i);
+            //System.out.println("Array size >>> "+ screens.size());
+            Screen screen = screens.get(i);
+            if (screen.getRoute().equals(route)){ // Obj1 > String from getRoute --- Obj2 > String from route and getting a boolean this methods belongs to Object Class
+                screen.render();
             }
 
         }
