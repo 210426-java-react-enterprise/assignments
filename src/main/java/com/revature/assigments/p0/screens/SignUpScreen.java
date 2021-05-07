@@ -1,5 +1,6 @@
 package com.revature.assigments.p0.screens;
 
+import com.revature.assigments.p0.models.AppUser;
 import com.revature.assigments.p0.util.ScreenRouter;
 
 import java.io.BufferedReader;
@@ -41,6 +42,8 @@ public class SignUpScreen extends Screen{
 
             System.out.print("Password: ");
             password = consoleReader.readLine();
+
+            AppUser newUser = new AppUser(firstName,lastName,email,username,password);
 
             this.render();
 
