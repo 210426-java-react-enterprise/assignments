@@ -203,7 +203,7 @@ create function employees_after_date(given_date timestamp)
 	
 	as $$
 		begin
-			return query select lastname, firstname from employee where birthdate > given_date;
+			return query select * from employee where birthdate > given_date;
 		end
 	$$;
 
