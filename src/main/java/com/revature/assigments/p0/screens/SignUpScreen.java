@@ -18,9 +18,32 @@ public class SignUpScreen extends Screen{
     @Override
     public void render() {
 
-        System.out.println("-------------------------------------");
-        System.out.println("    << Sign Up for a New Account>>   ");
-        System.out.println("-------------------------------------");
+        String firstName;
+        String lastName;
+        String email;
+        String username;
+        String password;
+
+            System.out.println("    << Sign Up for a New Account>>   ");
+            System.out.println("-------------------------------------");
+
+            System.out.print("First name: ");
+            firstName = consoleReader.readLine();
+
+            System.out.print("Last name: ");
+            lastName = consoleReader.readLine();
+
+            System.out.print("Email: ");
+            email = consoleReader.readLine();
+
+            System.out.print("Username: ");
+            username = consoleReader.readLine();
+
+            System.out.print("Password: ");
+            password = consoleReader.readLine();
+
+            this.render();
+
 
 
     }
