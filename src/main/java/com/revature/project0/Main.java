@@ -36,6 +36,9 @@ public class Main {
         myList.add(myAccount4);
         myList.add(myAccount5);
 
+        myList.remove(myAccount2);
+        myList.remove(myAccount4);
+
         Account temp = new Account("t", "t", 50);
 
         for(int i = 0; i < myList.size(); i++) {

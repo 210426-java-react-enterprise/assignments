@@ -159,48 +159,57 @@ public class LinkedList<T> implements Queue<T>, List<T> {
         }
 
         if (size == 0){
-            return null;
+            throw new IllegalArgumentException("This linked list does not have any data.");
         }
 
-        Node<T> runner = head;
 
-        for (int i = 0; i < size; i++) {//start from head and work towards tail
-            if(i == 0){
-                runner = head;
-            }else{
-                runner = runner.nextNode;
-            }
-
-            if (runner.data.equals(data)){
-                if (size == 1){ //if head and tail are same node
-                    head.nextNode = tail.prevNode = null;
-                    tail.data = head.data = null;
-                } else if (size == 2){ //if only 2 elements in list
-                    head.nextNode = tail.prevNode = null;
-                    head.data = tail.data;
-                } else if(runner.equals(head)){ //if data in head
-                   head.nextNode = head.nextNode.nextNode;
-                   head.data = head.nextNode.nextNode.data;
-                } else if (runner.equals(tail)){ //if data in tail
-                    tail.prevNode = tail.prevNode.prevNode;
-                    tail.data = tail.prevNode.prevNode.data;
-                } else { //data is in middle of linked list
-
-                    Node<T> node = head; //not a new node, but an existing one
-                    for (int j = 0; j < i-1; j++){
-                        node = node.nextNode;
-                    }
-                    node.nextNode = node.nextNode.nextNode;
-
+        for(Node<T> runner = head; !runner.equals(null); runner = runner.nextNode){
+            if(runner.data.equals(data)){
+                if(runner.equals(head)){
+                    head = head.nextNode;
+                    head.prevNode = null;
+                    size--;
+                    return head.data;
+                } else if(runner.equals(tail)){
+                    tail = tail.prevNode;
+                    tail.nextNode = null;
+                    size--;
+                    return tail.data;
+                } else {//make nodes adjacent to current node (runner) link to each other
+                    //this will make the runner node null when this function ends
+                    runner.nextNode.prevNode = runner.prevNode;
+                    runner.prevNode.nextNode = runner.nextNode;
+                    size--;
+                    return runner.data;
                 }
-
-                return data;
-
             }
         }//end for loop
 
-        throw new IllegalArgumentException("This linked list does not have this data.");
+        return null;//no data removed
 
+
+        /*
+        Node<T> runner = new Node<> (data);
+        for(Node<T> temp = head; temp != null; temp = temp.nextNode){
+            if(temp.getData() == runner.getData()){
+                if(temp == head){
+                    head=temp.nextNode;
+                    head.prevNode = null;
+                }
+                else if(temp == tail){
+                    tail=temp.prevNode;
+                    temp.nextNode = null;
+                }
+                else {
+                    temp.nextNode.prevNode = temp.prevNode;
+                    temp.prevNode.nextNode = temp.nextNode;
+                }
+                size--;
+                break;
+            }
+        }
+
+         */
     }
 
 
