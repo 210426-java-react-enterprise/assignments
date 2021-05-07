@@ -97,7 +97,7 @@ select MEDIALENGTH();
 
 
 
---3.3 SYSTEM DEFINED AGGREGATE FUNCTIONS
+--3.2 SYSTEM DEFINED AGGREGATE FUNCTIONS
 create or replace function INVOICEAVERAGE() returns numeric as $$
 declare
 	invoiceaverage numeric := (select AVG(total) from invoice);
@@ -119,7 +119,7 @@ select EXPENSIVETRACK();
 
 
 
---3.4 USER DEFINED SCALAR FUNCTIONS
+--3.3 USER DEFINED SCALAR FUNCTIONS
 create or replace function MYINVOICELINEAVERAGE() returns numeric as $$
 declare
 	invoicelinesum numeric := (select SUM(unitprice) from invoiceline);
@@ -129,6 +129,20 @@ begin
 end;
 $$ LANGUAGE plpgsql;
 select MYINVOICELINEAVERAGE();
+
+
+
+--3.4 USER DEFINE TABLE VALUED FUNCTION
+create or replace function TABLEYOUNGPEOPLE() returns table (first_name varchar(20), last_name varchar(20), birthday timestamp) as $$
+begin
+	return query
+	select firstname as first_name, lastname as last_name, birthdate as birthday
+	from employee 
+	where birthdate > '1968-01-01';
+end;
+$$ LANGUAGE plpgsql;
+select * from TABLEYOUNGPEOPLE();
+
 
 
 
