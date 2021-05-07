@@ -4,14 +4,16 @@ import com.revature.assigments.p0.models.AppUser;
 import com.revature.assigments.p0.util.ScreenRouter;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 
 public class SignUpScreen extends Screen{
 
+    //private UserDAO userDao = new UserDAO();
     private BufferedReader consoleReader;
     private ScreenRouter router;
 
-    public SignUpScreen(String name, String route) {
-        super("SignUpScreen","/signUpScreen");
+    public SignUpScreen(BufferedReader consoleReader, ScreenRouter router) {
+        super("SignUpScreen","/signUp");
         this.consoleReader = consoleReader;
         this.router = router;
     }
@@ -25,6 +27,7 @@ public class SignUpScreen extends Screen{
         String username;
         String password;
 
+        try{
             System.out.println("    << Sign Up for a New Account>>   ");
             System.out.println("-------------------------------------");
 
@@ -46,6 +49,10 @@ public class SignUpScreen extends Screen{
             AppUser newUser = new AppUser(firstName,lastName,email,username,password);
 
             this.render();
+
+        }catch(IOException e){
+            e.printStackTrace(); // This is exception for readline method
+        }
 
 
 

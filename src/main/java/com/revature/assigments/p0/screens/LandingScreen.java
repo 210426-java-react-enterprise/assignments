@@ -14,7 +14,7 @@ public class LandingScreen extends Screen {
     private ScreenRouter router;
 
     public LandingScreen(BufferedReader consoleReader, ScreenRouter router) {
-        super("LandingScreen","/landingScreen");
+        super("LandingScreen","/landing");
         this.consoleReader = consoleReader;
         this.router = router;
     }

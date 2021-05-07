@@ -8,7 +8,7 @@ public class Driver {
 
     public static void main(String[] args){
         while(app.isAppRunning()){
-            app.getRouter().navigate("/landingScreen");
+            app.getRouter().navigate("/landing");
         }
 
 
