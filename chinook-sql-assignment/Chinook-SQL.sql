@@ -49,4 +49,8 @@ delete from "Invoice" where "CustomerId" = 32;
 --Once all the above filed are deleted you can now delete Robert Walter from the table
 delete from "Customer" where "FirstName" = 'Robert' and "LastName" = 'Walter';
 
+/*The better way to accomplish this is with delete cascade
+ * if table doesn't have cascade set, alter table drop constraint
+ * re add constraint with delete cascade
+ *  */
 
