@@ -24,6 +24,11 @@ public class UserService {
         if(!isUserValid(newUser)){
             throw new invalidRequestedException("Invalid new user data provided!");
         }
+
+        if(!isEmailValid(newUser.getEmail())){
+            throw new invalidRequestedException("Invalid email address provided!");
+        }
+
         userDAO.save(newUser);
     }
 
@@ -32,18 +37,24 @@ public class UserService {
         if (user == null) return false;
         if (user.getFirstName() == null || user.getFirstName().trim().isEmpty() || user.getFirstName().trim().length() > 25) return false;
         if (user.getLastName() == null || user.getLastName().trim().isEmpty() || user.getLastName().trim().length() > 25) return false;
-        if (user.getEmail() == null || user.getEmail().trim().isEmpty() || user.getEmail().trim().length() > 256 || !(isEmailValid(user.getEmail())))return false;
+        System.out.println("Before Valid Email>>>The email is >>> " + user.getEmail());
+        if (user.getEmail() == null || user.getEmail().trim().isEmpty() || user.getEmail().trim().length() > 256 )return false;
         if (user.getUsername() == null || user.getUsername().trim().isEmpty() || user.getUsername().trim().length() > 25) return false;
         if (user.getPassword() == null || user.getPassword().trim().isEmpty() || user.getPassword().trim().length() > 256) return false;
 
         return true;
     }
 
+    /**
+     * Method to compare define email pattern against the input email address pattern
+     * return true if both pattern matches
+     */
+
     public boolean isEmailValid(String email){
-        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
-        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
-        java.util.regex.Matcher m = p.matcher(email);
-        return m.matches();
+        String emailPattern ="^(.+)@([^@]+[^.])$";
+        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(emailPattern);
+        java.util.regex.Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
 }

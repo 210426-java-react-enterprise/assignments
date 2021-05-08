@@ -51,7 +51,7 @@ public class SignUpScreen extends Screen{
             System.out.print("Password: ");
             password = consoleReader.readLine();
 
-            AppUser newUser = new AppUser(firstName,lastName,email,username,password);
+            AppUser newUser = new AppUser(username,password,firstName,lastName,email);
             userService.signUp(newUser);
 
             this.render();
