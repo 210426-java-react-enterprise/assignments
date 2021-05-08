@@ -1,6 +1,8 @@
 package com.revature.project0.util;
 
 import com.revature.project0.daos.UserDAO;
+import com.revature.project0.screens.LoginScreen;
+import com.revature.project0.screens.RegisterScreen;
 import com.revature.project0.screens.WelcomeScreen;
 
 import java.io.BufferedReader;
@@ -20,8 +22,10 @@ public class AppState {
         final UserDAO userDAO = new UserDAO();
         router = new ScreenRouter();
 
-        //add screen here (from screens package)
+        //TODO: add all screens from screens package
         router.addScreen(new WelcomeScreen(consoleReader, router));
+        router.addScreen(new RegisterScreen(consoleReader, router));
+        router.addScreen(new LoginScreen(consoleReader, router));
 
         System.out.println("Application initialized!");
 

@@ -7,7 +7,7 @@ abstract class or interface to inherit from?
 Dependent on AccountUser to exist
 */
 
-public class Account {
+public class AppAccount {
     //private int accountID; //unique for sql table entry
     //private String accountName;
     private String accountOwner;//any username
@@ -15,7 +15,7 @@ public class Account {
     private String password;//make it at least 5 characters in length
     private double balance;//restrict decimal digits to 2
 
-    public Account(String accountOwner, String password, double balance){
+    public AppAccount(String accountOwner, String password, double balance){
         this.accountOwner = accountOwner;
         this.password = password;
         this.balance = balance;

@@ -10,9 +10,14 @@ import java.sql.SQLException;
 
 public class UserDAO {
 
-    // TODO (Associate task) Implement me!
+    /**
+     * Saves AppUser data to SQL table.
+     *
+     * @param newUser
+     */
     public void save(AppUser newUser){
-
+        //TODO: make this actually do something
+        System.out.println("UserDAO save() method is under construction!");
     }
 
     //TODO: make sure this function works as intended
@@ -29,14 +34,15 @@ public class UserDAO {
             ResultSet rs = pstmt.executeQuery();
 
             //this while loop should only loop once
+            //TODO: update this when finished with RegisterScreen
             while (rs.next()) {
                 user = new AppUser();
-                user.setId(rs.getInt("id"));
+                user.setPassword(rs.getString("password"));
                 user.setUsername(rs.getString("username"));
                 user.setFirstName(rs.getString("first_name"));
                 user.setLastName(rs.getString("last_name"));
                 user.setEmail(rs.getString("email"));
-                user.setAge(rs.getInt("age"));
+                //user.setAge(rs.getInt("age"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
