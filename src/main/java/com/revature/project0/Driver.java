@@ -5,7 +5,12 @@ package com.revature.project0;
 import com.revature.project0.models.Account;
 import com.revature.project0.util.LinkedList;
 
-public class Main {
+/*
+class is same name as: com.postgresql.Driver
+see application.properties with driver=
+ */
+
+public class Driver {
 
     public static void main(String[] args) {
         //String name = "Thomas";
