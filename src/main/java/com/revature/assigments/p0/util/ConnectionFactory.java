@@ -21,10 +21,13 @@ public class ConnectionFactory {
 
     private ConnectionFactory(){
         try{
-            props.load(new FileReader("src/main/resources/application.properties)"));
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+
+            //props.load(new FileReader("src\\main\\resources\\application.properties)"));
+            props.load(new FileReader("C:\\Users\\casti\\OneDrive\\Escritorio\\revature\\210426-java-react-enterprise\\assignments\\src\\main\\resources\\application.properties"));
+
+        }catch (IOException e) {
+        e.printStackTrace();
+    }
     }
 
     public static ConnectionFactory getInstance(){

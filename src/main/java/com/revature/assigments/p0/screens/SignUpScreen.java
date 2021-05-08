@@ -1,6 +1,7 @@
 package com.revature.assigments.p0.screens;
 
 import com.revature.assigments.p0.models.AppUser;
+import com.revature.assigments.p0.services.UserService;
 import com.revature.assigments.p0.util.ScreenRouter;
 
 import java.io.BufferedReader;
@@ -10,12 +11,12 @@ public class SignUpScreen extends Screen{
 
     //private UserDAO userDao = new UserDAO();
     private BufferedReader consoleReader;
-    private ScreenRouter router;
+    private UserService userService;
 
-    public SignUpScreen(BufferedReader consoleReader, ScreenRouter router) {
+    public SignUpScreen(BufferedReader consoleReader, UserService userService) {
         super("SignUpScreen","/signUp");
         this.consoleReader = consoleReader;
-        this.router = router;
+        this.userService = userService;
     }
 
     @Override
@@ -47,6 +48,7 @@ public class SignUpScreen extends Screen{
             password = consoleReader.readLine();
 
             AppUser newUser = new AppUser(firstName,lastName,email,username,password);
+            userService.signUp(newUser);
 
             this.render();
 
