@@ -2,6 +2,7 @@ package com.revature.assigments.p0.screens;
 
 import java.io.BufferedReader;
 import com.revature.assigments.p0.util.ScreenRouter;
+import static com.revature.assigments.p0.Driver.app;
 
 /**
  * Class to render the landing bank screen
@@ -41,7 +42,7 @@ public class LandingScreen extends Screen {
 
                     break;
                 case "3": // Exit App
-
+                    app().setAppRunning(false);
                     break;
                 default:
                     System.out.println("Invalid Selection!");

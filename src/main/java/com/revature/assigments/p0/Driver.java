@@ -2,6 +2,7 @@ package com.revature.assigments.p0;
 
 import com.revature.assigments.p0.util.AppState;
 
+
 public class Driver {
 
     private static AppState app = new AppState();
@@ -11,7 +12,10 @@ public class Driver {
             app.getRouter().navigate("/landing");
         }
 
+    }
 
+    public static AppState app(){
+        return app;
     }
 
 }

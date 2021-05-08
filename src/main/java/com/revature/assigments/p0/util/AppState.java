@@ -37,5 +37,9 @@ public class AppState {
     public ScreenRouter getRouter() {
         return router;
     }
+
+    public void setAppRunning(boolean appRunning){
+        this.appRunning = appRunning;
+    }
 }
 

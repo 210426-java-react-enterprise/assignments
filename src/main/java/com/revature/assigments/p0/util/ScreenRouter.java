@@ -13,8 +13,8 @@ public class ScreenRouter {
     public void navigate(String route){
         //int arraySize = screens.size() - 1;
         int arraySize = screens.size();
-        System.out.println("The route value is >>>" + route);
-        System.out.println("Var arraySize >>> "+ arraySize);
+        //System.out.println("The route value is >>>" + route);
+        //System.out.println("Var arraySize >>> "+ arraySize);
         for (int i = 0; i < arraySize ; i++) {
             //System.out.println("i >>> " +i);
             //System.out.println("Array size >>> "+ screens.size());
