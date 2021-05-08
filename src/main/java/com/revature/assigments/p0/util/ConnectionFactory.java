@@ -7,6 +7,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * Class that establish the connections between my app and the Data Baser Server >> in this app I'm using Postgres
+ */
+
 public class ConnectionFactory {
     private static ConnectionFactory connectionFactory;
     private Properties props = new Properties();
@@ -21,7 +25,7 @@ public class ConnectionFactory {
 
     private ConnectionFactory(){
         try{
-
+            //Check here why my relative path is not working
             //props.load(new FileReader("src\\main\\resources\\application.properties)"));
             props.load(new FileReader("C:\\Users\\casti\\OneDrive\\Escritorio\\revature\\210426-java-react-enterprise\\assignments\\src\\main\\resources\\application.properties"));
 

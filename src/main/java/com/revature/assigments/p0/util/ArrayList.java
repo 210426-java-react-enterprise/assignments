@@ -11,7 +11,7 @@ public class ArrayList<T> implements List<T> {
     private int size=0;
     private Iterator[] iteArray = new Iterator[defaultArraySize];
 
-
+    //Method to add iterator the array
     @Override
     public void add(T data) throws IllegalArgumentException {
 
@@ -39,7 +39,7 @@ public class ArrayList<T> implements List<T> {
     }
 
 
-
+        //Method to get the correspondent iterator from the Array with index passed
         @Override
         public T get ( int index) {
             T dataToReturn;
@@ -63,17 +63,18 @@ public class ArrayList<T> implements List<T> {
     }
 
     @Override
-        public boolean constains (T data){
+    public boolean constains (T data){
             return false;
         }
 
-        @Override
-        public int size () {
 
-            int evalSize = 0;
+    //Method to get the size of the Array
+    @Override
+    public int size () {
+        int evalSize = 0;
 
-            while( iteArray[evalSize]!= null){
-                if(evalSize ==0)evalSize=1;
+        while( iteArray[evalSize]!= null){
+            if(evalSize ==0)evalSize=1;
 
                 evalSize++;
             }
@@ -89,9 +90,8 @@ public class ArrayList<T> implements List<T> {
             //System.out.println("Testing Size Method >> " + evalSize);
             return evalSize;
         }
-
-        @Override
-        public void sort (T data){
+    @Override
+    public void sort (T data){
 
         }
 
@@ -104,6 +104,7 @@ public class ArrayList<T> implements List<T> {
         }
         */
 
+        //Inner class to describe the data structure iterator
         private static class Iterator<T>{
 
             T data;

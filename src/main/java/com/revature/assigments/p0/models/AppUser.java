@@ -1,5 +1,10 @@
 package com.revature.assigments.p0.models;
 
+/**
+ * POJO Class to represent a User
+ */
+
+
 public class AppUser {
     private int id;
     private  String username;

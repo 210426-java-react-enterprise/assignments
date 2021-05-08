@@ -5,7 +5,7 @@ import com.revature.assigments.p0.util.ScreenRouter;
 import static com.revature.assigments.p0.Driver.app;
 
 /**
- * Class to render the landing bank screen
+ * Class to render the Landing Bank screen
  *
  */
 

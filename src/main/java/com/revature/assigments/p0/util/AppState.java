@@ -8,6 +8,9 @@ import com.revature.assigments.p0.services.UserService;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * Class to handle the running state of the app
+ */
 public class AppState {
 
     private boolean appRunning;

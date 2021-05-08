@@ -5,6 +5,10 @@ import com.revature.assigments.p0.models.AppUser;
 import com.revature.assigments.p0.exceptions.invalidRequestedException;
 import com.revature.assigments.p0.exceptions.ResourcesPersistanceException;
 
+
+/**
+ * Class that contains all my business logic for USER data validation
+ */
 public class UserService {
     private UserDAO userDAO;
 

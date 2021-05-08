@@ -8,6 +8,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Class to handle the User related SQL statements and accesses to the DB
+ */
+
 public class UserDAO {
 
     public void save(AppUser newUser){

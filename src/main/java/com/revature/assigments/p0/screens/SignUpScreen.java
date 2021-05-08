@@ -7,6 +7,10 @@ import com.revature.assigments.p0.util.ScreenRouter;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+/**
+ * Class to render the Sign Up screen
+ */
+
 public class SignUpScreen extends Screen{
 
     //private UserDAO userDao = new UserDAO();
