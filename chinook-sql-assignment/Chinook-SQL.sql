@@ -54,3 +54,15 @@ delete from "Customer" where "FirstName" = 'Robert' and "LastName" = 'Walter';
  * re add constraint with delete cascade
  *  */
 
+--3.0 SQL Functions
+--3.1 System Defined Functions
+select current_time;
+
+select "Name", length("Name") as "The Length of Media Type" from "MediaType";
+
+--3.2 System Defined Aggregate Functions
+select avg("Total") from "Invoice";
+
+select max("UnitPrice") from "Track";
+select "Name" from "Track" where "UnitPrice" = (select max("UnitPrice") from "Track");
+
