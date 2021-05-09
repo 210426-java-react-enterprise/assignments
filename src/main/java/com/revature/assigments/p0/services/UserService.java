@@ -29,6 +29,21 @@ public class UserService {
             throw new invalidRequestedException("Invalid email address provided!");
         }
 
+        if(!userDAO.isUsernameAvailable(newUser.getUsername())){
+            throw new invalidRequestedException("the username is not available please try with other username!");
+        }
+
+        if(!userDAO.isEmailAvailable(newUser.getEmail())){
+            throw new invalidRequestedException("the email is not available please try with other email address!");
+        }
+
+        /*Didn't not working check with the community
+        System.out.println("The email address is >>>" + newUser.getEmail());
+        if(!userDAO.isValueAvailable("email", newUser.getEmail())){
+            System.out.println("The email address is >>>" + newUser.getEmail());
+            throw new invalidRequestedException("the email is not available please try with other email address!");
+        }
+        */
         userDAO.save(newUser);
     }
 
@@ -37,7 +52,6 @@ public class UserService {
         if (user == null) return false;
         if (user.getFirstName() == null || user.getFirstName().trim().isEmpty() || user.getFirstName().trim().length() > 25) return false;
         if (user.getLastName() == null || user.getLastName().trim().isEmpty() || user.getLastName().trim().length() > 25) return false;
-        System.out.println("Before Valid Email>>>The email is >>> " + user.getEmail());
         if (user.getEmail() == null || user.getEmail().trim().isEmpty() || user.getEmail().trim().length() > 256 )return false;
         if (user.getUsername() == null || user.getUsername().trim().isEmpty() || user.getUsername().trim().length() > 25) return false;
         if (user.getPassword() == null || user.getPassword().trim().isEmpty() || user.getPassword().trim().length() > 256) return false;

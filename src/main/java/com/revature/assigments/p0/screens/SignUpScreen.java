@@ -52,9 +52,10 @@ public class SignUpScreen extends Screen{
             password = consoleReader.readLine();
 
             AppUser newUser = new AppUser(username,password,firstName,lastName,email);
+
             userService.signUp(newUser);
 
-            this.render();
+            //this.render();
 
         }catch(IOException e){
             e.printStackTrace(); // This is exception for readline method

@@ -39,4 +39,68 @@ public class UserDAO {
 
     }
 
+    //Method to check if a value from a column is already in the database
+    public boolean isUsernameAvailable(String username){
+        try(Connection conn = ConnectionFactory.getInstance().getConnection()){
+            String sqlSelectUsername = "select * from p0_canaima.users where username= ?";
+            PreparedStatement pstmt = conn.prepareStatement(sqlSelectUsername);
+            pstmt.setString(1, username);
+
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()){
+                return false;
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        return true;
+    }
+
+    //Method to check if a value from a column is already in the database
+    public boolean isEmailAvailable(String email){
+        try(Connection conn = ConnectionFactory.getInstance().getConnection()){
+            String sqlSelectUsername = "select * from p0_canaima.users where email= ?";
+            PreparedStatement pstmt = conn.prepareStatement(sqlSelectUsername);
+            pstmt.setString(1, email);
+
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()){
+                return false;
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        return true;
+    }
+
+
+    /* Didn't not working check with the community
+    public boolean isValueAvailable (String valueName, String value){
+        try(Connection conn = ConnectionFactory.getInstance().getConnection()){
+            String sqlSelectUsername = "select * from p0_canaima.users where ? = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sqlSelectUsername);
+            pstmt.setString(1, valueName);
+            pstmt.setString(2, value);
+
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()){
+                return false;
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        return true;
+    }
+*/
+
+
+
+
+
 }
