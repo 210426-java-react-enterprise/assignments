@@ -6,6 +6,7 @@ import com.revature.assigments.p0.screens.SignInScreen;
 import com.revature.assigments.p0.screens.SignUpScreen;
 import com.revature.assigments.p0.screens.TransactionScreen;
 import com.revature.assigments.p0.services.UserService;
+import com.revature.assigments.p0.models.AppUser;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -18,6 +19,7 @@ public class AppState {
     private boolean appRunning;
     private BufferedReader consoleReader;
     private ScreenRouter router;
+    private AppUser currentUser;
 
     public AppState() {
         System.out.println("Initializing application");
@@ -31,8 +33,8 @@ public class AppState {
         router = new ScreenRouter();
         router.addScreen(new LandingScreen(consoleReader,router))
                 .addScreen(new SignUpScreen(consoleReader, userService))
-                .addScreen(new SignInScreen(consoleReader, userService))
-                .addScreen(new TransactionScreen(consoleReader,router)); // Here I can add more screens
+                .addScreen(new SignInScreen(consoleReader, router, userService))
+                .addScreen(new TransactionScreen(consoleReader, router, currentUser)); // Here I can add more screens
 
         System.out.println("Application initialized!");
     }

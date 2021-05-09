@@ -13,9 +13,10 @@ public class SignInScreen extends Screen{
     private UserService userService;
     private ScreenRouter router;
 
-    public SignInScreen(BufferedReader consoleReader, UserService userService) {
+    public SignInScreen(BufferedReader consoleReader,ScreenRouter router,UserService userService) {
         super("SignInScreen","/signIn");
         this.consoleReader = consoleReader;
+        this.router = router;
         this.userService = userService;
     }
 
