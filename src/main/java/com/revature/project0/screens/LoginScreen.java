@@ -21,4 +21,9 @@ public class LoginScreen extends Screen {
         System.out.println("Login screen under construction");
     }
 
+    //TODO: implement this in place of render() when ready
+    public void renderv2(){
+
+    }
+
 }

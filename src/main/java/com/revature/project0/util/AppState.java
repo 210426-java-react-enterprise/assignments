@@ -8,6 +8,12 @@ import com.revature.project0.screens.WelcomeScreen;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/*
+Initializes the BufferedReader and ScreenRouter to be used across all classes.
+No other classes will create a "new" BufferedReader or ScreenRouter.
+
+ */
+
 public class AppState {
     private BufferedReader consoleReader;
     private ScreenRouter router;

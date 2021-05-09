@@ -3,27 +3,64 @@ package com.revature.project0.daos;
 import com.revature.project0.models.AppUser;
 import com.revature.project0.util.ConnectionFactory;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserDAO {
 
     /**
      * Saves AppUser data to SQL table.
      *
-     * @param newUser
+     * This includes username, password, email, firstname, lastname, etc.
+     *
      */
     public void save(AppUser newUser){
-        //TODO: make this actually do something
-        System.out.println("UserDAO save() method is under construction!");
+
+        System.out.println("Connecting to SQL database...");
+
+        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
+
+            System.out.println("Uploading created user information into database...");
+
+            String sql = "insert into app_user (username, password, email, first_name, last_name, address, city, state)" +
+                    " values(''?'', ''?'', ''?'', ''?'', ''?'', ''?'', ''?'', ''?'');";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, newUser.getUsername());
+            pstmt.setString(2, newUser.getPassword());
+            pstmt.setString(3, newUser.getEmail());
+            pstmt.setString(4, newUser.getFirstName());
+            pstmt.setString(5, newUser.getLastName());
+            pstmt.setString(6, newUser.getAddress());
+            pstmt.setString(7, newUser.getCity());
+            pstmt.setString(8, newUser.getState());
+            //pstmt.setString(9, newUser.getAccountID());
+
+            //pstmt.executeQuery();
+
+            pstmt.executeUpdate();
+
+            System.out.println("Upload complete!");
+
+        } catch (SQLException e) {
+            System.out.println("Upload failed!");
+            e.printStackTrace();
+        }
     }
+
+
+    //TODO: implement this!
+    public void createAccountForAppUser(){
+
+    }
+
 
     //TODO: make sure this function works as intended
     public AppUser findUserByUsernameAndPassword(String username, String password){
         AppUser user = null;
 
+        //Connection is a connection with an SQL database.
+        //SQL statements are executed, and results returned, within the Connection.
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
             String sql = "select * from banking.users where username = ? and password = ?";
@@ -37,18 +74,26 @@ public class UserDAO {
             //TODO: update this when finished with RegisterScreen
             while (rs.next()) {
                 user = new AppUser();
-                user.setPassword(rs.getString("password"));
                 user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
                 user.setFirstName(rs.getString("first_name"));
                 user.setLastName(rs.getString("last_name"));
-                user.setEmail(rs.getString("email"));
-                //user.setAge(rs.getInt("age"));
+                user.setAddress(rs.getString("address"));
+                user.setCity(rs.getString("city"));
+                user.setState(rs.getString("state"));
+                user.setAccountID(rs.getString("account_id"));//should this be done?
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return user;
+
+    }
+
+    //TODO: ?
+    public void registerNewUser(){
 
     }
 

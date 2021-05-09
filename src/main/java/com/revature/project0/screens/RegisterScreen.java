@@ -19,6 +19,7 @@ public class RegisterScreen extends Screen {
         this.router = router;
     }
 
+    //TODO: make this save inputted information to UserDAO
     public void render() {
 
         String username;//PK for user, FK for account
@@ -29,7 +30,7 @@ public class RegisterScreen extends Screen {
         String address;
         String city;
         String state;
-        String phone;
+        //String phone;
         //int age;
         //String zipcode;
         String accountID;//PK for account, FK for user
@@ -79,15 +80,14 @@ public class RegisterScreen extends Screen {
             //zipcode = consoleReader.readLine();
 
             //TODO: ensure proper format
-            System.out.print("Phone: ");
-            phone = consoleReader.readLine();
+            //System.out.print("Phone: ");
+            //phone = consoleReader.readLine();
 
             AppUser newUser = new AppUser(username, firstName, lastName, email,
-                    address, city, state, /*zipcode,*/ phone);
+                    address, city, state/*, zipcode, phone*/);
 
             System.out.println("Created user: " + newUser.toString());
 
-            //TODO: make this actually do something
             userDAO.save(newUser);
 
         } catch (Exception e){

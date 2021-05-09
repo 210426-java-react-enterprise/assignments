@@ -9,6 +9,7 @@ import java.util.Properties;
 
 /*
 Loads application.properties file to know AWS hosted location of SQL server.
+Also loads postgresql Driver class.
  */
 
 public class ConnectionFactory {
@@ -18,7 +19,7 @@ public class ConnectionFactory {
 
     static {
         try {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");//ensures this class loads.
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -27,7 +28,7 @@ public class ConnectionFactory {
 
     //doesn't initialize just yet
     private ConnectionFactory() {
-        try {
+        try {//connects to application.properties file
             props.load(new FileReader("src/main/resources/application.properties"));
         } catch (IOException e) {
             e.printStackTrace();
@@ -44,14 +45,14 @@ public class ConnectionFactory {
 
     }
 
-
+    //get SQL server connection
     public Connection getConnection() {
 
         Connection conn = null;
 
         try {
-            conn = DriverManager.getConnection(
-                    props.getProperty("host-url"),
+            conn = DriverManager.getConnection(//DriverManager manages set of JDBC drivers
+                    props.getProperty("host-url"),//url to SQL server hosted on AWS
                     props.getProperty("username"),
                     props.getProperty("password"));
         } catch (SQLException e) {

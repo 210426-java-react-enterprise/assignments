@@ -16,7 +16,7 @@ public class AppUser {
     private String address;
     private String city;
     private String state;
-    private String phone;
+    //private String phone;
     //private String birthDate;//TODO: implement this
     //private String zipcode;//TODO: don't implement unless setting up separate SQL table
     private String accountID;//foreign key for SQL table
@@ -29,8 +29,8 @@ public class AppUser {
     //TODO: make check to see if username is unique
     //users normally don't start with an accoundID, particularly if registering for first time
     public AppUser(String username, String firstName, String lastName, String email,
-                   String address, String city, String state, /*String zipcode,*/
-                   String phone/*, int age*/ ){
+                   String address, String city, String state/*, String zipcode,
+                   String phone, int age*/ ){
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -39,15 +39,15 @@ public class AppUser {
         this.address = address;
         this.city = city;
         this.state = state;
-        this.phone = phone;
+        //this.phone = phone;
         //this.zipcode = zipcode;
     }
 
     //TODO: make check to see if accountID is duplicate for this username
     //just in case they start with an accountID too
     public AppUser(String username, String firstName, String lastName, String email,
-                   String address, String city, String state, /*String zipcode,*/
-                   String phone, /*int age,*/ String accountID){
+                   String address, String city, String state, /*String zipcode,
+                   String phone, int age,*/ String accountID){
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -56,7 +56,7 @@ public class AppUser {
         this.address = address;
         this.city = city;
         this.state = state;
-        this.phone = phone;
+        //this.phone = phone;
         //this.zipcode = zipcode;
         this.accountID = accountID;
     }
@@ -144,6 +144,7 @@ public class AppUser {
         this.state = state;
     }
 
+    /*
     public String getPhone() {
         return phone;
     }
@@ -152,7 +153,7 @@ public class AppUser {
         this.phone = phone;
     }
 
-    /*
+
     public String getZipcode() {
         return zipcode;
     }
@@ -176,7 +177,7 @@ public class AppUser {
         sb.append(", city=").append(city);
         sb.append(", state=").append(state);
         //sb.append(", zipcode=").append(zipcode);
-        sb.append(", phone=").append(phone);
+        //sb.append(", phone=").append(phone);
         sb.append('}');
         return sb.toString();
     }
