@@ -3,6 +3,7 @@ package com.revature.assigments.p0.screens;
 import com.revature.assigments.p0.util.ScreenRouter;
 import java.io.BufferedReader;
 import com.revature.assigments.p0.models.AppUser;
+import com.revature.assigments.p0.util.UserTracker;
 
 import static com.revature.assigments.p0.Driver.app;
 
@@ -11,13 +12,12 @@ public class TransactionScreen extends Screen{
 
     private BufferedReader consoleReader;
     private ScreenRouter router;
-    private AppUser currentUser;
 
-    public TransactionScreen(BufferedReader consoleReader, ScreenRouter router, AppUser currentUser) {
-        super("TransactionScreen","/transaction");
+
+    public TransactionScreen(BufferedReader consoleReader, ScreenRouter router, UserTracker userTracker) {
+        super("TransactionScreen","/transaction",userTracker);
         this.consoleReader = consoleReader;
         this.router = router;
-        this.currentUser = currentUser;
     }
 
 
@@ -33,6 +33,8 @@ public class TransactionScreen extends Screen{
         System.out.println("4.-Transfer");
         System.out.println("5.-Transactions history");
         System.out.println("6.-Exit Application");
+
+        System.out.println("The current user id is >>>" +userTracker.getUser().getId());
 
 
         try{
