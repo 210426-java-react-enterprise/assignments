@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class SignUpScreen extends Screen{
 
-    //private UserDAO userDao = new UserDAO();
+
     private BufferedReader consoleReader;
     private UserService userService;
 

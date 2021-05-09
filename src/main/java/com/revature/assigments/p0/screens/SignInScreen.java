@@ -9,7 +9,6 @@ import java.io.IOException;
 
 public class SignInScreen extends Screen{
 
-    //private UserDAO userDao = new UserDAO();
     private BufferedReader consoleReader;
     private UserService userService;
     private ScreenRouter router;
