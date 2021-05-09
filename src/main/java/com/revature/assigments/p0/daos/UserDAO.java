@@ -77,6 +77,35 @@ public class UserDAO {
         return true;
     }
 
+    //Method to find a user by username and password and return the user from DB
+    public AppUser findUserByUsernameAndPassword(String username, String password){
+
+        AppUser user = null;
+
+        try(Connection conn = ConnectionFactory.getInstance().getConnection()){
+            String sqlFindUser = "select * from user where username = ? and password = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sqlFindUser);
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+
+            ResultSet rs = pstmt.executeQuery(sqlFindUser);
+            while(rs.next()){
+                user = new AppUser();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setFirstName(rs.getString("first_name"));
+                user.setLastName(rs.getString("last_name"));
+                user.setEmail(rs.getString("email"));
+            }
+
+        } catch(SQLException throwables){
+            throwables.printStackTrace();
+        }
+
+        return user;
+    }
+
 
     /* Didn't not working check with the community
     public boolean isValueAvailable (String valueName, String value){
@@ -98,8 +127,6 @@ public class UserDAO {
         return true;
     }
 */
-
-
 
 
 

@@ -33,7 +33,7 @@ public class SignUpScreen extends Screen{
         String password;
 
         try{
-            System.out.println("    << Sign Up for a New Account>>   ");
+            System.out.println("          << Sign up now >>          ");
             System.out.println("-------------------------------------");
 
             System.out.print("First name: ");

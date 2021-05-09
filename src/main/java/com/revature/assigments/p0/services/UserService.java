@@ -71,4 +71,15 @@ public class UserService {
         return matcher.matches();
     }
 
+    public AppUser signIn(String username, String password){
+        AppUser user = null;
+
+        if (username == null || username.trim().isEmpty() || username.trim().length() > 25) return user;
+
+        user = userDAO.findUserByUsernameAndPassword(username, password);
+
+        return user;
+    }
+
+
 }

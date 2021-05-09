@@ -1,6 +1,8 @@
 package com.revature.assigments.p0.screens;
 
+import com.revature.assigments.p0.models.AppUser;
 import com.revature.assigments.p0.services.UserService;
+import com.revature.assigments.p0.util.ScreenRouter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +12,7 @@ public class SignInScreen extends Screen{
     //private UserDAO userDao = new UserDAO();
     private BufferedReader consoleReader;
     private UserService userService;
+    private ScreenRouter router;
 
     public SignInScreen(BufferedReader consoleReader, UserService userService) {
         super("SignInScreen","/signIn");
@@ -20,12 +23,28 @@ public class SignInScreen extends Screen{
     @Override
     public void render() {
 
+        String username;
+        String password;
+
+
         try{
-            System.out.println("      << Sign In your Account>>      ");
+
+            System.out.println("            << Sign In >>            ");
             System.out.println("-------------------------------------");
 
-            System.out.print("First name: ");
-            firstName = consoleReader.readLine();
+            System.out.print("Username: ");
+            username = consoleReader.readLine();
+
+            System.out.print("Passoword: ");
+            password = consoleReader.readLine();
+
+            AppUser currentUser = userService.signIn(username,password);
+            if (currentUser!= null){
+                System.out.println("Login successfull!");
+                router.navigate("/transactions");
+            }else{
+                System.out.println("The email or password is incorrect.");
+            }
 
 
         }catch(IOException e){
