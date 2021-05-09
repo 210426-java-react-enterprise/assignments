@@ -83,7 +83,7 @@ public class RegisterScreen extends Screen {
             //System.out.print("Phone: ");
             //phone = consoleReader.readLine();
 
-            AppUser newUser = new AppUser(username, firstName, lastName, email,
+            AppUser newUser = new AppUser(username, password, firstName, lastName, email,
                     address, city, state/*, zipcode, phone*/);
 
             System.out.println("Created user: " + newUser.toString());

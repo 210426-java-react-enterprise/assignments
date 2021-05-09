@@ -22,7 +22,7 @@ public class UserDAO {
             System.out.println("Uploading created user information into database...");
 
             String sql = "insert into app_user (username, password, email, first_name, last_name, address, city, state)" +
-                    " values(''?'', ''?'', ''?'', ''?'', ''?'', ''?'', ''?'', ''?'');";
+                    " values(?, ?, ?, ?, ?, ?, ?, ?);";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
@@ -36,8 +36,6 @@ public class UserDAO {
             pstmt.setString(8, newUser.getState());
             //pstmt.setString(9, newUser.getAccountID());
 
-            //pstmt.executeQuery();
-
             pstmt.executeUpdate();
 
             System.out.println("Upload complete!");
@@ -49,13 +47,8 @@ public class UserDAO {
     }
 
 
-    //TODO: implement this!
-    public void createAccountForAppUser(){
 
-    }
-
-
-    //TODO: make sure this function works as intended
+    //should this even return anything?
     public AppUser findUserByUsernameAndPassword(String username, String password){
         AppUser user = null;
 
@@ -63,7 +56,7 @@ public class UserDAO {
         //SQL statements are executed, and results returned, within the Connection.
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
-            String sql = "select * from banking.users where username = ? and password = ?";
+            String sql = "select * from app_user where username = ? and password = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, username);
             pstmt.setString(2, password);
@@ -71,7 +64,6 @@ public class UserDAO {
             ResultSet rs = pstmt.executeQuery();
 
             //this while loop should only loop once
-            //TODO: update this when finished with RegisterScreen
             while (rs.next()) {
                 user = new AppUser();
                 user.setUsername(rs.getString("username"));
@@ -82,8 +74,10 @@ public class UserDAO {
                 user.setAddress(rs.getString("address"));
                 user.setCity(rs.getString("city"));
                 user.setState(rs.getString("state"));
-                user.setAccountID(rs.getString("account_id"));//should this be done?
+                user.setAccountID(rs.getString("account_id"));//reference with account(s) user can do transactions with
             }
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -92,9 +86,5 @@ public class UserDAO {
 
     }
 
-    //TODO: ?
-    public void registerNewUser(){
-
-    }
 
 }

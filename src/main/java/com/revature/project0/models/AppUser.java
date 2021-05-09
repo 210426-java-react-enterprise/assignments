@@ -28,10 +28,11 @@ public class AppUser {
 
     //TODO: make check to see if username is unique
     //users normally don't start with an accoundID, particularly if registering for first time
-    public AppUser(String username, String firstName, String lastName, String email,
+    public AppUser(String username, String password, String firstName, String lastName, String email,
                    String address, String city, String state/*, String zipcode,
                    String phone, int age*/ ){
         this.username = username;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -43,22 +44,11 @@ public class AppUser {
         //this.zipcode = zipcode;
     }
 
-    //TODO: make check to see if accountID is duplicate for this username
-    //just in case they start with an accountID too
-    public AppUser(String username, String firstName, String lastName, String email,
-                   String address, String city, String state, /*String zipcode,
-                   String phone, int age,*/ String accountID){
+
+    //to use when logging in instead of registering
+    public AppUser(String username, String password){
         this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        //this.age = age;
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        //this.phone = phone;
-        //this.zipcode = zipcode;
-        this.accountID = accountID;
+        this.password = password;
     }
 
     public String getUsername() {
