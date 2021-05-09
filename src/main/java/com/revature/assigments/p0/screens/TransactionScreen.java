@@ -33,7 +33,7 @@ public class TransactionScreen extends Screen{
         System.out.println("4.-Transfer");
         System.out.println("5.-Transactions history");
         System.out.println("6.-Exit Application");
-            
+
 
         try{
             System.out.println(">> ");

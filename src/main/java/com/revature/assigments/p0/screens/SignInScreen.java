@@ -41,7 +41,7 @@ public class SignInScreen extends Screen{
             AppUser currentUser = userService.signIn(username,password);
             if (currentUser!= null){
                 System.out.println("Login successfull!");
-                router.navigate("/transaction");
+                  router.navigate("/transaction");
             }else{
                 System.out.println("The email or password is incorrect.");
             }

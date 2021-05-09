@@ -1,5 +1,6 @@
 package com.revature.assigments.p0.util;
 
+import com.revature.assigments.p0.models.AppUser;
 import com.revature.assigments.p0.screens.Screen;
 
 /**
@@ -27,5 +28,6 @@ public class ScreenRouter {
 
         }
     }
+
 
 }
