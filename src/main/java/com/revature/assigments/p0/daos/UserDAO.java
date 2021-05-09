@@ -83,15 +83,15 @@ public class UserDAO {
         AppUser user = null;
 
         try(Connection conn = ConnectionFactory.getInstance().getConnection()){
-            String sqlFindUser = "select * from user where username = ? and password = ?";
+            String sqlFindUser = "select * from p0_canaima.users where username = ? and password=?;";
             PreparedStatement pstmt = conn.prepareStatement(sqlFindUser);
             pstmt.setString(1, username);
             pstmt.setString(2, password);
 
-            ResultSet rs = pstmt.executeQuery(sqlFindUser);
+            ResultSet rs = pstmt.executeQuery();
             while(rs.next()){
                 user = new AppUser();
-                user.setId(rs.getInt("id"));
+                user.setId(rs.getInt("user_id"));
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setFirstName(rs.getString("first_name"));
