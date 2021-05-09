@@ -10,7 +10,7 @@ public abstract class Screen {
 
     protected String name;
     protected String route;
-    protected UserTracker userTracker;
+    protected UserTracker userTracker; // Added to keep the current user info in memory
 
     public Screen(String name, String route) {
         this.name = name;

@@ -29,6 +29,7 @@ public class ScreenRouter {
         }
     }
 
+    //Overloading to update the UserTracker
     public void navigate(String route, UserTracker userTracker){
         //int arraySize = screens.size() - 1;
         int arraySize = screens.size();

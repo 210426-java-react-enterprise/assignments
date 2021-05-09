@@ -45,8 +45,7 @@ public class SignInScreen extends Screen{
             if (currentUser!= null){
                 System.out.println("Login successfull!");
                 this.userTracker = new UserTracker(currentUser);
-                //router.navigate("/transaction");
-                router.navigate("/transaction", this.userTracker);
+                router.navigate("/transaction", this.userTracker); // I'm calling the overloading method to pass the UserTracker
             }else{
                 System.out.println("The email or password is incorrect.");
             }
