@@ -72,6 +72,12 @@ public class LoginScreen extends Screen {
             e.printStackTrace();
         }
 
+        //appUser is still set to above, unless null, in which case this won't happen
+        //have router navigate to AccountScreen, which AppState can pass appUser into
+        //as an argument at app start, which will still be pointing to the same app
+        //the one in this method is pointing to.  Because there should only be one
+        //userDAO all the classes are pointing to.  It was only instantiated once in
+        //the AppState class.
         if(userFound) {
             userAccountScreen(appUser);
             //TODO: do this instead:

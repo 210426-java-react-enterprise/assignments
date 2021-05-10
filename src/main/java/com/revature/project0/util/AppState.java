@@ -37,7 +37,7 @@ public class AppState {
         router.addScreen(new WelcomeScreen(consoleReader, router));
         router.addScreen(new RegisterScreen(consoleReader, router, userDAO));
         router.addScreen(new LoginScreen(consoleReader, router, userDAO));
-        router.addScreen(new AccountScreen(consoleReader, router));//TODO: make this do something so it's not pointless
+        router.addScreen(new AccountScreen(consoleReader, router, userDAO));//TODO: make this do something so it's not pointless
 
         System.out.println("Application initialized!");
 
