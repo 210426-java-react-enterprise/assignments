@@ -40,11 +40,11 @@ public class TransactionScreen extends Screen{
         try{
             System.out.println(">> ");
             String userSelection = consoleReader.readLine();
-            /*
+
             switch (userSelection){
                 case "1": //Sign Up
-                    System.out.println("Navigating >>>> Sign Up Screen");
-                    router.navigate("/signUp");
+                    System.out.println("Navigating >>>> Create Account");
+                    router.navigate("/createAccount");
                     break;
                 case "2": //Sign In
                     System.out.println("Navigating >>>> Sign In Screen");
