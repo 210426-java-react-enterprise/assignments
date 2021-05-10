@@ -25,10 +25,7 @@ public class ConnectionFactory {
     // I'm using a Lazy Singleton
     private ConnectionFactory(){
         try{
-            //Check here why my relative path is not working
-            //props.load(new FileReader("src\\main\\resources\\application.properties)"));
-            props.load(new FileReader("C:\\Users\\casti\\OneDrive\\Escritorio\\revature\\210426-java-react-enterprise\\assignments\\src\\main\\resources\\application.properties"));
-
+            props.load(new FileReader("src/main/resources/application.properties"));
         }catch (IOException e) {
         e.printStackTrace();
     }
