@@ -7,37 +7,28 @@ abstract class or interface to inherit from?
 Dependent on AccountUser to exist
 */
 
+import java.sql.Date;
+
 public class AppAccount {
-    //private int accountID; //unique for sql table entry
+    private String accountID; //unique for sql table entry
     //private String accountName;
     private String accountOwner;//any username
     //private int accountOwnerID; //unique for sql table entry; foreign key
-    private String password;//make it at least 5 characters in length
+    private String accountType;//make it at least 5 characters in length
+    private Date dateCreated;
     private double balance;//restrict decimal digits to 2
 
-    public AppAccount(String accountOwner, String password, double balance){
+    public AppAccount() {
+        super();
+    }
+
+    public AppAccount(String accountOwner, String accountType, Date dateCreated, double balance){
         this.accountOwner = accountOwner;
-        this.password = password;
+        this.accountType = accountType;
+        this.dateCreated = dateCreated;
         this.balance = balance;
     }
 
-    /* accountOwner may make this unnecessary
-    public String getAccountName() {
-        return accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
-    */
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getAccountOwner() {
         return accountOwner;
@@ -45,6 +36,34 @@ public class AppAccount {
 
     public void setAccountOwner(String accountOwner) {
         this.accountOwner = accountOwner;
+    }
+
+    public String getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(String accountID) {
+        this.accountID = accountID;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     public double getBalance() {

@@ -74,7 +74,7 @@ public class UserDAO {
                 user.setAddress(rs.getString("address"));
                 user.setCity(rs.getString("city"));
                 user.setState(rs.getString("state"));
-                user.setAccountID(rs.getString("account_id"));//reference with account(s) user can do transactions with
+                user.setAccountID(rs.getString("account_id"));//reference with account(s) user starts with
             }
 
 

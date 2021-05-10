@@ -1,15 +1,19 @@
 package com.revature.project0.screens;
 
+import com.revature.project0.daos.AccountDAO;
 import com.revature.project0.daos.UserDAO;
 import com.revature.project0.models.AppUser;
 import com.revature.project0.util.ScreenRouter;
 
 import java.io.BufferedReader;
 
+import static com.revature.project0.Driver.app;
+
 public class RegisterScreen extends Screen {
 
-    //TODO: cleanup this gross thing
-    private UserDAO userDAO = new UserDAO();
+
+    private UserDAO userDAO = new UserDAO();//TODO: cleanup this gross thing
+    private AccountDAO accountDAO = new AccountDAO();//TODO: cleanup this gross thing
     private BufferedReader consoleReader;
     private ScreenRouter router;
 
@@ -19,7 +23,7 @@ public class RegisterScreen extends Screen {
         this.router = router;
     }
 
-    //TODO: make this save inputted information to UserDAO
+
     public void render() {
 
         String username;//PK for user, FK for account
@@ -86,14 +90,43 @@ public class RegisterScreen extends Screen {
             AppUser newUser = new AppUser(username, password, firstName, lastName, email,
                     address, city, state/*, zipcode, phone*/);
 
-            System.out.println("Created user: " + newUser.toString());
+            System.out.println("Created user: " + newUser);
 
             userDAO.save(newUser);
+
+            System.out.println("What type of account do you want?");
+            System.out.println("1) Checking");
+            System.out.println("2) Savings");
+
+            String userSelection = consoleReader.readLine();
+
+            createCheckingOrSavings(newUser, userSelection);
+
+            //TODO: implement method to check if user actually has a bank account, just in case something went wrong
 
         } catch (Exception e){
             e.printStackTrace();
         }
 
+    }
+
+
+
+    //TODO: move this to AccountDAO
+    private boolean createCheckingOrSavings(AppUser appUser, String userSelection){
+
+        switch (userSelection) {
+            case "1":
+                System.out.println("Creating Checking account...");
+                accountDAO.createAccount(appUser, "checking");
+                break;
+            case "2":
+                System.out.println("Creating Savings account...");
+                accountDAO.createAccount(appUser, "savings");
+                break;
+        }
+
+        return false;
     }
 
 }

@@ -87,3 +87,6 @@ values('gexthegecko', 'password', 'thomas@revature.net', 'thomas', 'diendorf', '
 
 delete from app_user
 where username = 'gexthegecko';
+
+insert into bank_account (username, account_type, balance)
+values('gexthegecko', 'checking', 0.00);
