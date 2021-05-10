@@ -12,7 +12,7 @@ import java.util.Properties;
  */
 
 public class ConnectionFactory {
-    private static ConnectionFactory connectionFactory;
+    private static ConnectionFactory connectionFactory;//I'm using the singleton pattern
     private Properties props = new Properties();
 
     static {
@@ -22,7 +22,7 @@ public class ConnectionFactory {
             e.printStackTrace();
         }
     }
-
+    // I'm using a Lazy Singleton
     private ConnectionFactory(){
         try{
             //Check here why my relative path is not working
