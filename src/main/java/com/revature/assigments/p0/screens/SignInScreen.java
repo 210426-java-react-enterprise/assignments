@@ -38,12 +38,12 @@ public class SignInScreen extends Screen{
             System.out.print("Username: ");
             username = consoleReader.readLine();
 
-            System.out.print("Passoword: ");
+            System.out.print("Password: ");
             password = consoleReader.readLine();
 
             AppUser currentUser = userService.signIn(username,password);
             if (currentUser!= null){
-                System.out.println("Login successfull!");
+                System.out.println("Login successful!!");
                 this.userTracker = new UserTracker(currentUser);
                 router.navigate("/transaction", this.userTracker); // I'm calling the overloading method to pass the UserTracker
             }else{

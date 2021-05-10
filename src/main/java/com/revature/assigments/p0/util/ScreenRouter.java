@@ -20,8 +20,8 @@ public class ScreenRouter {
         int arraySize = screens.size();
         for (int i = 0; i < arraySize ; i++) {
             Screen screen = screens.get(i);
-            System.out.println("Value for i >> " + i);
-            System.out.println("The route is >> " + screen.getRoute());
+            //System.out.println("Value for i >> " + i);
+            //System.out.println("The route is >> " + screen.getRoute());
             if (screen.getRoute().equals(route)){ // Obj1 > String from getRoute --- Obj2 > String from route and getting a boolean this methods belongs to Object Class
                 screen.render();
             }

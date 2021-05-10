@@ -34,7 +34,7 @@ public class TransactionScreen extends Screen{
         System.out.println("5.-Transactions history");
         System.out.println("6.-Exit Application");
 
-        System.out.println("The current user id is >>>" +userTracker.getUser().getId());
+        //System.out.println("The current user id is >>>" +userTracker.getUser().getId());
 
 
         try{
@@ -42,15 +42,27 @@ public class TransactionScreen extends Screen{
             String userSelection = consoleReader.readLine();
 
             switch (userSelection){
-                case "1": //Sign Up
+                case "1": //Create Account
                     System.out.println("Navigating >>>> Create Account");
                     router.navigate("/createAccount");
                     break;
-                case "2": //Sign In
-                    System.out.println("Navigating >>>> Sign In Screen");
-                    router.navigate("/signIn");
+                case "2": //Check Balance
+                    System.out.println("Navigating >>>> Check Balance");
+                    router.navigate("/checkBalance");
                     break;
-                case "3": // Exit App
+                case "3": //Withdraw
+                    System.out.println("Navigating >>>> Withdraw");
+                    router.navigate("/withdraw");
+                    break;
+                case "4": //Transfer
+                    System.out.println("Navigating >>>> Transfer");
+                    router.navigate("/transfer");
+                    break;
+                case "5": //Transaction history
+                    System.out.println("Navigating >>>> Transaction history");
+                    router.navigate("/transactionHistory");
+                    break;
+                case "6": // Exit App
                     app().setAppRunning(false);
                     break;
                 default:
