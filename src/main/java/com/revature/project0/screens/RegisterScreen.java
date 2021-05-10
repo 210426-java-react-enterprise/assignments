@@ -12,15 +12,16 @@ import static com.revature.project0.Driver.app;
 public class RegisterScreen extends Screen {
 
 
-    private UserDAO userDAO = new UserDAO();//TODO: cleanup this gross thing
+    private UserDAO userDAO;
     private AccountDAO accountDAO = new AccountDAO();//TODO: cleanup this gross thing
     private BufferedReader consoleReader;
     private ScreenRouter router;
 
-    public RegisterScreen(BufferedReader consoleReader, ScreenRouter router){
+    public RegisterScreen(BufferedReader consoleReader, ScreenRouter router, UserDAO userDAO){
         super("RegisterScreen", "/register");
         this.consoleReader = consoleReader;
         this.router = router;
+        this.userDAO = userDAO;
     }
 
 
@@ -94,6 +95,8 @@ public class RegisterScreen extends Screen {
 
             userDAO.save(newUser);
 
+            /*
+
             System.out.println("What type of account do you want?");
             System.out.println("1) Checking");
             System.out.println("2) Savings");
@@ -102,7 +105,10 @@ public class RegisterScreen extends Screen {
 
             createCheckingOrSavings(newUser, userSelection);
 
-            //TODO: implement method to check if user actually has a bank account, just in case something went wrong
+            */
+
+            //Once user is created, can login with that username and password.
+            //If no account is detected after login, will create one at login screen
 
         } catch (Exception e){
             e.printStackTrace();

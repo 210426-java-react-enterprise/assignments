@@ -9,7 +9,43 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+/**
+ * Saves AppAccount data to SQL table bank_account.
+ *
+ * This includes username, account_type, balance, etc.
+ *
+ */
 public class AccountDAO {
+
+    //relies on having an account, and a user for the account
+    public void save (AppUser appUser, AppAccount appAccount){
+
+        System.out.println("Connecting to SQL database...");
+
+        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
+
+            System.out.println("Uploading created account information into database...");
+
+            String sql = "insert into bank_account (username, account_type, balance)" +
+                    " values(?, ?, ?);";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, appAccount.getAccountOwner());
+            pstmt.setString(2, appAccount.getAccountType());
+            pstmt.setDouble(3, appAccount.getBalance());
+
+            pstmt.executeUpdate();
+
+            System.out.println("Upload complete!");
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
+
 
     public void createAccount(AppUser user, String accountType){
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {

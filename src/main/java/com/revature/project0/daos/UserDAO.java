@@ -8,7 +8,7 @@ import java.sql.*;
 public class UserDAO {
 
     /**
-     * Saves AppUser data to SQL table.
+     * Saves AppUser data to SQL table app_user.
      *
      * This includes username, password, email, firstname, lastname, etc.
      *

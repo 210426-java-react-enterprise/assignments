@@ -13,13 +13,14 @@ public class LoginScreen extends Screen {
 
     private BufferedReader consoleReader;
     private ScreenRouter router;
-    private UserDAO userDAO = new UserDAO();//TODO: clean this ugly thing
-    private AccountDAO accountDAO = new AccountDAO();//TODO: ditto
+    private UserDAO userDAO;
+    private AccountDAO accountDAO = new AccountDAO();//TODO: clean up
 
-    public LoginScreen(BufferedReader consoleReader, ScreenRouter router) {
+    public LoginScreen(BufferedReader consoleReader, ScreenRouter router, UserDAO userDAO) {
         super("LoginScreen", "/login");
         this.consoleReader = consoleReader;
         this.router = router;
+        this.userDAO = userDAO;
     }
 
     public void render() {
@@ -31,6 +32,7 @@ public class LoginScreen extends Screen {
 
         AppUser appUser = null;
 
+        //TODO: make this a while loop that continues until values are not null
         try {
             System.out.println("Enter username: ");
             username = consoleReader.readLine();
@@ -43,6 +45,7 @@ public class LoginScreen extends Screen {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         if(username == null || password == null){
             System.out.println("User not found!");
@@ -61,8 +64,6 @@ public class LoginScreen extends Screen {
 
                 //if there is an account, move to next portion of login screen (logged on)
                 userFound = true;
-
-                //router.navigate("/account");
             } else {
                 System.out.println("User not found!");
             }
@@ -71,7 +72,11 @@ public class LoginScreen extends Screen {
             e.printStackTrace();
         }
 
-        if(userFound) { userAccountScreen(appUser); }
+        if(userFound) {
+            userAccountScreen(appUser);
+            //TODO: do this instead:
+            //router.navigate("/account");
+        }
 
 
     }
@@ -86,7 +91,7 @@ public class LoginScreen extends Screen {
         AppAccount accountTest = accountDAO.findAccountByUsername(username);
 
         try {
-            if (!accountTest.equals(null)) {//with throw the NullPointerExceptCatch if this is false
+            if (accountTest != null) {//will throw the NullPointerExceptCatch if this is false
 
                 //show account options (balance, deposit, withdraw)
                 System.out.println("Welcome to your account.  What do you want to do?");
@@ -109,7 +114,7 @@ public class LoginScreen extends Screen {
                         break;
                 }
             }
-        }catch (NullPointerException e) {//in other words, accountTest.equals(null) is true
+        }catch (NullPointerException e) {//in other words, accountTest != null is false
             System.out.println("You have no bank account.  Make one!");
 
             System.out.println("1) Create checking account");

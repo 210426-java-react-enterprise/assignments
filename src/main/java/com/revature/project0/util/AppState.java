@@ -13,11 +13,16 @@ import java.io.InputStreamReader;
 Initializes the BufferedReader and ScreenRouter to be used across all classes.
 No other classes will create a "new" BufferedReader or ScreenRouter.
 
+Instantiates all "new" Screens.
+
+TODO: instantiate all DAO classes?  Pass them into Screen classes as a parameter?
+
  */
 
 public class AppState {
     private BufferedReader consoleReader;
     private ScreenRouter router;
+    private final UserDAO userDAO;
     private boolean appRunning;
 
     public AppState(){
@@ -26,13 +31,13 @@ public class AppState {
 
         appRunning = true;
         consoleReader = new BufferedReader(new InputStreamReader(System.in));
-        final UserDAO userDAO = new UserDAO();
+        userDAO = new UserDAO();
         router = new ScreenRouter();
 
         router.addScreen(new WelcomeScreen(consoleReader, router));
-        router.addScreen(new RegisterScreen(consoleReader, router));
-        router.addScreen(new LoginScreen(consoleReader, router));
-        router.addScreen(new AccountScreen(consoleReader, router));
+        router.addScreen(new RegisterScreen(consoleReader, router, userDAO));
+        router.addScreen(new LoginScreen(consoleReader, router, userDAO));
+        router.addScreen(new AccountScreen(consoleReader, router));//TODO: make this do something so it's not pointless
 
         System.out.println("Application initialized!");
 
