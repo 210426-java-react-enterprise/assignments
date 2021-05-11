@@ -117,3 +117,13 @@ from "Invoice"
 full outer join "Customer" on "Invoice"."CustomerId" = "Customer" ."CustomerId" 
 order by "Customer"."CustomerId";
 
+--4.3 Right
+select "Album"."Title", "Artist"."Name"
+from "Album"
+right join "Artist" on "Album"."ArtistId" = "Artist"."ArtistId"
+order by "Album"."ArtistId";
+
+--4.4 cross
+select *
+from "Artist", "Album"
+order by "Name" asc;
