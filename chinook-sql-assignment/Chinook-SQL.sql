@@ -104,3 +104,16 @@ begin
 end;$$
 
 select employeesBefore1968();
+
+--4.1 Inner Join
+
+select "InvoiceId","FirstName", "LastName"
+from "Customer"
+inner join "Invoice" on "Invoice"."CustomerId" = "Customer" ."CustomerId" ;
+
+--4.2 Outer Join
+select "Customer"."FirstName", "Customer"."LastName", "Invoice"."InvoiceId", "Invoice"."Total"
+from "Invoice"
+full outer join "Customer" on "Invoice"."CustomerId" = "Customer" ."CustomerId" 
+order by "Customer"."CustomerId";
+
