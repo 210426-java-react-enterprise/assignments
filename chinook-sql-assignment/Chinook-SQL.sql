@@ -123,7 +123,14 @@ from "Album"
 right join "Artist" on "Album"."ArtistId" = "Artist"."ArtistId"
 order by "Album"."ArtistId";
 
---4.4 cross
+--4.4 Cross
 select *
 from "Artist", "Album"
 order by "Name" asc;
+
+--4.5 Self employee reports to column
+select A."FirstName", B."FirstName", A."ReportsTo"
+from "Employee" A, "Employee" B
+where A."EmployeeId" <> B."EmployeeId"
+and A."ReportsTo" = B."ReportsTo"
+order by A."ReportsTo";
