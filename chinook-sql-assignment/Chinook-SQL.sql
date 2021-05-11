@@ -66,3 +66,41 @@ select avg("Total") from "Invoice";
 select max("UnitPrice") from "Track";
 select "Name" from "Track" where "UnitPrice" = (select max("UnitPrice") from "Track");
 
+--3.3 User Defined Scalar function
+create or replace function avgInvoiceItem()
+returns int
+language plpgsql
+as $$
+declare 
+total float;
+num float;
+begin
+	select count(*) into num from  "InvoiceLine";
+	select sum("unitPrice") into total from "InvoiceLine";
+	
+	return num/total;
+end;
+$$
+
+select avgInvoiceLine();
+
+--3.4 User Defined Table Valued Functions
+create or replace function employeesBefore1968()
+	returns table(
+		FirstName varchar,
+		LastName varchar
+	)
+	language plpgsql
+as $$
+begin
+	return query
+	select
+		"FirstName",
+		"LastName"
+	from
+		"Employee"
+	where 
+		"BirthDate" > '1968-01-01 00:00:00';
+end;$$
+
+select employeesBefore1968();
