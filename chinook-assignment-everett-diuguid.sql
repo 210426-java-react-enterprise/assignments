@@ -1,4 +1,7 @@
 --Chinook assignment
+--Completed by: Everett Diuguid
+--May 10, 2021
+
 select * from invoice;
 --2.1
 select * from employee;
