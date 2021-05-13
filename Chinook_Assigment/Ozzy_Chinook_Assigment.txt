@@ -1,0 +1,97 @@
+--Task 2.1
+--Task 2.1.1
+select * from "Employee";
+
+--Task 2.1.2
+select * from "Employee" where "LastName" = 'King';
+
+--Task 2.1.3
+select * from "Employee" where "FirstName" = 'Andrew' and "ReportsTo" is null;
+
+--Task 2.2
+--Task 2.2.1
+select * from "Album" order by "Title" desc;
+
+--Task 2.2.2
+select "FirstName" from "Customer" order by "FirstName" asc;
+
+--Task 2.3
+--Task 2.3.1
+insert into "Genre" ("GenreId","Name")
+	values (26,'Drum & Bass'), (27,'Gospel');
+
+--Task 2.3.2
+insert into "Employee" ("EmployeeId","LastName","FirstName")
+	values (9,'Jane','Doe'),(10,'John','Doe');
+
+--Task 2.3.3
+insert into "Customer" ("CustomerId","FirstName","LastName","Email")
+	values (60,'John','Doe','john.doe@gmail.com'),(61,'Jane','Doe','jane.doe@outlook.com');
+
+--Task 2.4
+--Task 2.4.1
+update "Customer" 
+	set "FirstName" = 'Robert', "LastName" = 'Walter'
+	where "FirstName" = 'Aaron' and "LastName" = 'Mitchell';
+
+--Task 2.4.2
+update "Artist"
+	set "Name" = 'CCR'
+	where "Name"='Creedence Clearwater Revival';
+
+--Task 2.5
+--Task 2.5.1
+select * from "Invoice" where "BillingAddress" like 'T%';
+
+--Task 2.6
+--Task 2.6.1
+select * from "Invoice" where "Total" between 15 and 50;
+
+--Task 2.6.2
+select * from "Employee" where "HireDate" between '2003-06-01' and '2004-03-01';
+
+--Task 2.7 
+select * from "Customer" where "LastName" = 'Walter' and "FirstName" = 'Robert';
+delete from "Customer" where "LastName" = 'Walter' and "FirstName" = 'Robert';
+
+alter table "InvoiceLine" drop constraint FK_InvoiceLineInvoiceId;
+
+alter table "InvoiceLine" constraint FK_InvoiceLine references "Invoice" (InvoiceId) on delete cascade;
+
+select * from "InvoiceLine";
+
+select * from "Invoice";
+
+select * from "Customer";
+alter table "Invoice" drop constraint "FK_InvoiceCustomerId";
+alter table "Invoice" constraint foreign key "FK_InvoiceCustomerId" references "Customer" ("CustomerId") on delete cascade;
+
+
+alter table "InvoiceLine" drop foreign key FK_InvoiceLineInvoiceId;
+alter table "InvoiceLine" foreign key FK_InvoiceLineInvoiceId references "Invoice" (InvoiceId) on delete cascade;
+
+--Task 3.0 
+--Task 3.1
+select current_timestamp;
+
+select "MediaTypeId", "Name", length("Name") from "MediaType" mt; 
+
+--Task 3.2
+select sum("Total"), count(*) , avg("Total") as total_avg_invoices from "Invoice" i;
+
+
+select "TrackId" , "Name", maxvalue() from "Track" where maxvalue;
+
+/***************************************************************************/
+
+select * from "MediaType" mt ;
+
+create or replace function actual_time() returns timestamp as $$
+	begin
+		select current_timestamp; 
+		return select current_timestamp;
+	end;
+
+$$ language plpgsql;
+
+
