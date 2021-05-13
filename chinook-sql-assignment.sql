@@ -76,46 +76,21 @@ delete from customer where firstname = 'Robert' and lastname = 'Walter';
 
 
 --3.1 SYSTEM DEFINED FUNCTIONS
-create or replace function GETTIME() returns time as $$
-declare
-	currenttime time := (select NOW());
-begin
-	return currenttime;
-end;
-$$ LANGUAGE plpgsql;
-select GETTIME();
+select NOW();
+
+select LENGTH((select name from mediatype limit 1));
 
 
-create or replace function MEDIALENGTH() returns int as $$
-declare
-	medialength int := (select LENGTH((select name from mediatype limit 1)));
-begin
-	return medialength;
-end;
-$$ LANGUAGE plpgsql;
-select MEDIALENGTH();
 
 
 
 --3.2 SYSTEM DEFINED AGGREGATE FUNCTIONS
-create or replace function INVOICEAVERAGE() returns numeric as $$
-declare
-	invoiceaverage numeric := (select AVG(total) from invoice);
-begin
-	return invoiceaverage;
-end;
-$$ LANGUAGE plpgsql;
-select INVOICEAVERAGE();
+select AVG(total) from invoice;
 
 
-create or replace function EXPENSIVETRACK() returns numeric as $$
-declare
-	expensivetrack numeric := (select MAX(unitprice) from track);
-begin
-	return expensivetrack;
-end;
-$$ LANGUAGE plpgsql;
-select EXPENSIVETRACK();
+select * from track where unitprice = (select MAX(unitprice) from track);
+
+
 
 
 
@@ -175,6 +150,5 @@ order by ar.name
 select *
 from employee a 
 join employee b on a.reportsto = b.employeeid 
-
 
 
