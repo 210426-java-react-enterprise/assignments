@@ -1,7 +1,7 @@
 --Removed double quotes from original linked script in assignment
 
---set search_path to chinook;
---show search_path;
+set search_path to chinook;
+show search_path;
 
 --Task 2.1
 --Select all records from the Employee table.
@@ -68,7 +68,7 @@ returns numeric as
 $$
 begin
 	return ((select sum(unitprice) from invoiceline) / (select count(*) from invoiceline));
-end; $$
+end $$
 language plpgsql;
 select average_invoiceline_price();
 
@@ -110,4 +110,3 @@ select a.name from artist a cross join album a2 order by a.name asc;
 
 --Task 4.5 - Perform a self-join on the employee table, joining on the reports to column.
 select * from employee e, employee e2 where e.reportsto = e.reportsto;
-
