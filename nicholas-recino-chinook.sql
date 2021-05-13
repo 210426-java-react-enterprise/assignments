@@ -110,7 +110,8 @@ begin
 			"Employee"
 		where
 			"BirthDate" >= '1968-01-01' and "BirthDate" < '1969-01-01';
-end;$$
+end;
+$$;
 select * from get_employees_born_before_1968();
 
 --4.1
@@ -134,7 +135,6 @@ from "Artist", "Album"
 order by "Name" asc;
 
 --4.5
-
 select employee_1."FirstName", employee_2."FirstName", employee_1."ReportsTo"
 from "Employee" employee_1
 inner join "Employee" employee_2
