@@ -14,6 +14,7 @@ public class TransactionScreen extends Screen{
     private ScreenRouter router;
 
 
+
     public TransactionScreen(BufferedReader consoleReader, ScreenRouter router, UserTracker userTracker) {
         super("TransactionScreen","/transaction",userTracker);
         this.consoleReader = consoleReader;
@@ -44,7 +45,7 @@ public class TransactionScreen extends Screen{
             switch (userSelection){
                 case "1": //Create Account
                     System.out.println("Navigating >>>> Create Account");
-                    router.navigate("/createAccount");
+                    router.navigate("createAccount", this.userTracker);
                     break;
                 case "2": //Check Balance
                     System.out.println("Navigating >>>> Check Balance");
