@@ -47,15 +47,27 @@ select * from "Track" where "UnitPrice" = (select max("UnitPrice") from "Track")
 select avg("UnitPrice") from "InvoiceLine";
 --3.4 User Defined Table Valued Functions
 select * from "Employee" where  "BirthDate" > '1968-12-31';
---4.1 Joins
+--4.1  Inner
 select "FirstName", "LastName", "InvoiceId"
-from "Invoice" 
+from "Invoice"
 inner join "Customer"
-on "Invoice"."CustomerId" = "Customer"."CustomerId";
+on "Customer"."CustomerId" = "Invoice"."CustomerId";
 --4.2 Outer
 select *
 from "Invoice"
 full outer join "Customer"
 on "Customer"."CustomerId" = "Invoice"."CustomerId";
 --4.3 Right
-
+select "Name", "Title"
+from "Artist"
+right join "Album"
+on "Album"."ArtistId" = "Artist"."ArtistId";
+--4.4 Cross
+select * 
+from "Album" 
+cross join "Artist" order by "Name" asc;
+--4.5 Self
+select E."FirstName", E."LastName", E."EmployeeId", R."FirstName", R."LastName", R."EmployeeId"  
+from "Employee"  E
+left join "Employee" R
+on E."ReportsTo" = R."EmployeeId"; 
