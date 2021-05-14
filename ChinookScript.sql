@@ -47,7 +47,7 @@ alter table "Invoice" drop constraint "FK_InvoiceCustomerId";
 alter table "Invoice" with check add constraint "FK_InvoiceCustomerId" foreign key "CustomerId" references "Customer"."CustomerId" on delete cascade;
 
 alter table "InvoiceLine" drop constraint "FK_InvoiceLineInvoiceId";
-alter table "InvoiceLine" with check add constraint "FK_InvoiceLineInvoiceId" foreign key "CustomerId" references "Invoice"."InvoiceId" on delete cascade;
+alter table "InvoiceLine" with check add constraint "FK_InvoiceLineInvoiceId" foreign key "InvoiceId" references "Invoice"."InvoiceId" on delete cascade;
 
 delete from "Customer" where "FirstName" = 'Robert' and "LastName" = 'Walter';
 
@@ -79,11 +79,17 @@ end;$$
 
 --4.0 Joins
 --4.1 INNER
+select "FirstName", "LastName", "InvoiceId" from "Customer" inner join "Invoice"
+on "Customer"."CustomerId" = "Invoice"."CustomerId";
 
 --4.2 OUTER
+select "Customer"."CustomerId", "FirstName", "LastName", "InvoiceId", "Total" from "Customer" full outer join "Invoice" 
+on "Customer"."CustomerId" = "Invoice"."CustomerId";
 
 --4.3 RIGHT
 
+
 --4.4 CROSS
+
 
 --4.5 SELF
