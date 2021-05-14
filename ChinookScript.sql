@@ -87,12 +87,10 @@ select "Customer"."CustomerId", "FirstName", "LastName", "InvoiceId", "Total" fr
 on "Customer"."CustomerId" = "Invoice"."CustomerId";
 
 --4.3 RIGHT
-
+select "Name", "Title" from "Artist" right join "Album"
+using ("ArtistId");
 
 --4.4 CROSS
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0f91207ff456a63ad2cbf4e862dbf47a3141e23b
 --4.5 SELF
