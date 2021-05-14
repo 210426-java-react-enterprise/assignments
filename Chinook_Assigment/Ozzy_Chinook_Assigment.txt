@@ -84,7 +84,7 @@ select "TrackId" , "Name", maxvalue() from "Track" where maxvalue;
 
 --Task 3.3
 select * from "InvoiceLine" il; 
-
+git
 select avg("UnitPrice") from "InvoiceLine" as avg_prince_unit;
 
 create or replace function avg_price_invoice_lines() 
