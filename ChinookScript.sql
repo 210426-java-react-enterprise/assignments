@@ -91,6 +91,8 @@ select "Name", "Title" from "Artist" right join "Album"
 using ("ArtistId");
 
 --4.4 CROSS
-
+select *
+from "Album", "Artist" order by "Name";
+--see here for other methods: https://www.postgresqltutorial.com/postgresql-cross-join/
 
 --4.5 SELF
