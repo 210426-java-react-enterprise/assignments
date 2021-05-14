@@ -82,16 +82,24 @@ select sum("Total"), count(*) , avg("Total") as total_avg_invoices from "Invoice
 
 select "TrackId" , "Name", maxvalue() from "Track" where maxvalue;
 
-/***************************************************************************/
+--Task 3.3
+select * from "InvoiceLine" il; 
 
-select * from "MediaType" mt ;
+select avg("UnitPrice") from "InvoiceLine" as avg_prince_unit;
 
-create or replace function actual_time() returns timestamp as $$
-	begin
-		select current_timestamp; 
-		return select current_timestamp;
+create or replace function avg_price_invoice_lines() 
+returns numeric
+language plpgsql
+as 
+$$
+	declare
+		avg_price_unit numeric;
+	begin 
+		select avg("UnitPrice") from "InvoiceLine" into avg_price_unit;
+		return avg_price_unit; 
 	end;
+$$;
 
-$$ language plpgsql;
+select avg_price_invoice_lines();
 
-
+--Next Task
