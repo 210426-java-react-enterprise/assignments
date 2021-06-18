@@ -72,7 +72,7 @@ public class SolarDoomsdayTest {
 
         // Arrange
         int area = 376209;
-        List<Integer> expected = new ArrayList<>(Arrays.asList(613, 20, 6, 2));
+        List<Integer> expected = new ArrayList<>(Arrays.asList(375769, 400, 36, 4));
 
         // Act
         List<Integer> result = sut.solution(area);
@@ -86,7 +86,7 @@ public class SolarDoomsdayTest {
 
         // Arrange
         int area = 24;
-        List<Integer> expected = new ArrayList<>(Arrays.asList(4, 2, 2));
+        List<Integer> expected = new ArrayList<>(Arrays.asList(16, 4, 4));
 
         // Act
         List<Integer> result = sut.solution(area);
