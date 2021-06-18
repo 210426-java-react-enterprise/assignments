@@ -22,5 +22,40 @@ package com.revature;
 //        Atttribution: This problem originated from Google's secret Foobar Coding Challenge.
 
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solar {
+    public static void main(String[] args) {
+
+    }
+
+    public int[] solution(int area){
+        return new int[]{0,0,0,0};
+    }
+
+    public Map<Integer,Integer[]> solutionSet(){
+        Map<Integer,Integer[]> solutionSet = new HashMap<>();
+        int[] data = new int[]{15129,169,25,1};
+        solutionSet.put(15324, Arrays.stream(data).boxed().toArray(Integer[]::new));
+        data = new int[]{9,1,1,1};
+        solutionSet.put(12, Arrays.stream(data).boxed().toArray(Integer[]::new));
+        data = new int[]{64,49,36,1};
+        solutionSet.put(150, Arrays.stream(data).boxed().toArray(Integer[]::new));
+        data = new int[]{81,64,36,1};
+        solutionSet.put(182, Arrays.stream(data).boxed().toArray(Integer[]::new));
+        data = new int[]{100,49,36,1};
+        solutionSet.put(186, Arrays.stream(data).boxed().toArray(Integer[]::new));
+        data = new int[]{900,49,36,1};
+        solutionSet.put(986, Arrays.stream(data).boxed().toArray(Integer[]::new));
+        data = new int[]{676,100,36,1};
+        solutionSet.put(813, Arrays.stream(data).boxed().toArray(Integer[]::new));
+
+
+        return solutionSet;
+    }
+
+
 }
+
