@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Solution {
@@ -26,7 +27,20 @@ public class Solution {
 	static class Result {
 
 		public static List<Integer> calculateDoomsday(int area) {
+			List<Integer> squares = new ArrayList<>();
+			int biggestSquare;
+			int bigArea;
+			int remainder = area;
 
+			do {
+				biggestSquare = (int) Math.floor(Math.sqrt(remainder)); // Finds dimensions of the first square by taking the square root of the area and rounding down.
+
+				bigArea = biggestSquare * biggestSquare;
+				squares.add(bigArea);
+				remainder = remainder - bigArea;
+			} while (remainder != 0);
+
+			return squares;
 		}
 	}
 }
