@@ -37,7 +37,19 @@ public class SolarDoomsdayProblem {
     public static List<Integer> solution(int area){
         //possible squares range from 1 to 1,000,000
         List<Integer> squares = new ArrayList<>();
+        int tracker = area;
+        int next = (int) Math.sqrt(area);
+        int nextSquare = next*next;
+        squares.add(nextSquare);
 
+        tracker -= nextSquare;
+
+        while(tracker >= 1){
+            next = (int) Math.sqrt(tracker);
+            nextSquare = next*next;
+            tracker -= nextSquare;
+            squares.add(nextSquare);
+        }
         return squares;
     }
 }
