@@ -1,15 +1,31 @@
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SolarDoomsday {
-    int areas[] = {12, 15324, 47};
+    public static void main(String[] args) {
+        int areas[] = {12, 15324, 47};
 
-    (int i = 0; i < 3; i++){
-    int area = areas[i];
-        solution(area);
+
+        {for (int i = 0; i < 3; i++) {
+            System.out.println(solution(areas[i]));
+        }
+        }
     }
 
-    public Array solution(int area){
 
+
+
+    public static List<Integer> solution(int area){
+        List<Integer> listAns = new ArrayList<>();
+        while (area != 0){
+            double root = Math.sqrt(area);
+            int largest = (int)Math.floor(root);
+            area = area - (largest*largest);
+            listAns.add(largest*largest);
+        }
+
+        return listAns;
     }
 }
