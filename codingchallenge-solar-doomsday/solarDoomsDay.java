@@ -89,9 +89,6 @@ public class solarDoomsDay {
             newArea = (int) (area - Math.pow(squareRoot,2));
 
 
-            //note: newArea will be passed back into the sqrt(newArea) = value --> (value)^2 = anotherValue.
-            // (i.e sqrt(26) = 5 --> (5)^2 = 25)
-            //note: newArea - anotherValue = newNewArea. i.e 26-25 = 1
             //Step 5: reset value of area to equal newArea.
             area = newArea;
 
