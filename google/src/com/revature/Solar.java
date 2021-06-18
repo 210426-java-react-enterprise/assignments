@@ -22,38 +22,116 @@ package com.revature;
 //        Atttribution: This problem originated from Google's secret Foobar Coding Challenge.
 
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Solar {
     public static void main(String[] args) {
+        solutionSet();
+
 
     }
 
-    public int[] solution(int area){
-        return new int[]{0,0,0,0};
+    public static int[] solution(int area){
+        List<Integer> result = new ArrayList<Integer>();
+        while (area > 0) {
+            int next = maxSquare(area, 1, 1000);
+            result.add(next);
+            area -= next;
+        }
+
+        int[] answer = new int[result.size()];
+
+        for (int i = 0; i < answer.length ; i++)
+            answer[i] = result.get(i);
+
+        return answer;
     }
 
-    public Map<Integer,Integer[]> solutionSet(){
-        Map<Integer,Integer[]> solutionSet = new HashMap<>();
+    public static void solutionSet(){
+
         int[] data = new int[]{15129,169,25,1};
-        solutionSet.put(15324, Arrays.stream(data).boxed().toArray(Integer[]::new));
+        int test= 15324;
+
+        int[] actual = solution(test);
+
+        System.out.println(Arrays.toString(data)+"\n\n");
+        System.out.println(Arrays.toString(actual)+"\n\n");
+        System.out.println("==========================");
+
+
+
+
         data = new int[]{9,1,1,1};
-        solutionSet.put(12, Arrays.stream(data).boxed().toArray(Integer[]::new));
-        data = new int[]{64,49,36,1};
-        solutionSet.put(150, Arrays.stream(data).boxed().toArray(Integer[]::new));
-        data = new int[]{81,64,36,1};
-        solutionSet.put(182, Arrays.stream(data).boxed().toArray(Integer[]::new));
-        data = new int[]{100,49,36,1};
-        solutionSet.put(186, Arrays.stream(data).boxed().toArray(Integer[]::new));
-        data = new int[]{900,49,36,1};
-        solutionSet.put(986, Arrays.stream(data).boxed().toArray(Integer[]::new));
-        data = new int[]{676,100,36,1};
-        solutionSet.put(813, Arrays.stream(data).boxed().toArray(Integer[]::new));
+       test = 12;
+        actual = solution(test);
+
+        System.out.println(Arrays.toString(data)+"\n\n");
+        System.out.println(Arrays.toString(actual)+"\n\n");
+        System.out.println("==========================");
+
+        data = new int[]{144,4,1,1};
+       test = 150;
+        actual = solution(test);
+
+        System.out.println(Arrays.toString(data)+"\n\n");
+        System.out.println(Arrays.toString(actual)+"\n\n");
+        System.out.println("==========================");
+
+        data = new int[]{169,9,4,1};
+        test = 183;
+        actual = solution(test);
+
+        System.out.println(Arrays.toString(data)+"\n\n");
+        System.out.println(Arrays.toString(actual)+"\n\n");
+        System.out.println("==========================");
+
+        data = new int[]{169,16,1,1};
+       test = 187;
+        actual = solution(test);
+
+        System.out.println(Arrays.toString(data)+"\n\n");
+        System.out.println(Arrays.toString(actual)+"\n\n");
+        System.out.println("==========================");
+
+        data = new int[]{961,25,1,1};
+        test = 988;
+        actual = solution(test);
+
+        System.out.println(Arrays.toString(data)+"\n\n");
+        System.out.println(Arrays.toString(actual)+"\n\n");
+        System.out.println("==========================");
+
+        data = new int[]{784,25,4,1};
+        test = 814;
+        actual = solution(test);
+
+        System.out.println(Arrays.toString(data)+"\n\n");
+        System.out.println(Arrays.toString(actual)+"\n\n");
+        System.out.println("==========================");
 
 
-        return solutionSet;
+    }
+
+    public static int maxSquare(int number, int start, int end) {
+        int mid =  (start+end) / 2;
+        int mid2 = mid * mid;
+
+        if (end - start == 1 || start - end == 1) {
+            if ((mid+1)*(mid+1) <= number)
+                return (mid+1)*(mid+1);
+            else
+                return mid2;
+        } else {
+            if (mid2 < number)
+                return maxSquare(number, mid, end);
+            else if (mid2 > number)
+                return maxSquare(number, start, mid);
+            else if (mid2 == number) {
+                return mid2;
+            }
+        }
+
+        return 0;
     }
 
 
