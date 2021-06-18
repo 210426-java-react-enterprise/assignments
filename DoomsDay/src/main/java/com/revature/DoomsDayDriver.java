@@ -5,6 +5,29 @@ public class DoomsDayDriver {
 
 
 /*
+    Notes to solve:
+        - first note that all large areas are perfect squares #makeSense
+            + so we should check up to the square root + 1 of the total area in question
+            
+            ex)
+                total area 12 and the largest square we can make call it x
+                    - so then  1<= x <= 12^(1/2) + 1 ------> 1<= x <= 4
+                        +1**2 == 1 comparing these values to 12!
+                        +2**2 == 4 we can still keep going
+                        +3**2 == 9 perfect
+                        +4**2 == 16 way to big!
+                - so then now we have 12 - 9 = 3
+                    - so then 1 <= x <= 3**(1/2) +1 ---> 1<= x <=2
+                        + 1**2 == 1 perfect
+                        + 2**2 == 4 too big
+                        
+                - while doing these examples, things to consider
+                    + one is a base case
+                    + what about a perfect square, if it is a perfect square done
+                    + prime numbers will be an issue 
+ */
+
+/*
 
     Solar Doomsday
 Who would've guessed? Doomsday devices take a LOT of power. Commander Lambda wants to supplement the LAMBCHOP's
@@ -36,3 +59,4 @@ Output: [15129,169,25,1]
 
 
 
+ 
