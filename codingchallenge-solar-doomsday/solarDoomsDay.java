@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -51,7 +52,36 @@ public class solarDoomsDay {
     }
 
     public static int[] solution(int area){
-        return new int[0];
+        int newArea = 0;
+
+        //initialized list
+        ArrayList<Integer> test = new ArrayList<>();
+
+        do{
+            //step 1: Square root the area, cast the double into an int (int division drops the decimal value)
+            //i.e. sqrt(987) = 31
+            int squareRoot = ((int) Math.sqrt(area));
+
+            //step 2: Raise the remainder of sqrt(area) to power 2. (i.e 31^2 = 961)
+            //step 3: Subtract area from that value = newArea. (i.e. 987-961 = 26)
+            //step 4: cast to int
+            newArea = (int) (area - Math.pow(squareRoot,2));
+
+
+            //Step 5: reset value of area to equal newArea.
+            area = newArea;
+
+            //Step 6: values added to arrayList
+            test.add((int) Math.pow(squareRoot,2));
+
+
+            // Repeat so long as value is greater than 0.
+        }while (area > 0);
+        int[] returnArray = new int[test.size()];
+        for (int i = 0; i < test.size(); i++) {
+            returnArray[i] = test.get(i);
+        }
+        return returnArray;
     }
 
 }
