@@ -12,8 +12,9 @@ public class Solution {
 		try {
 			BufferedReader bf = new BufferedReader(new FileReader("src/main/resources/test.txt"));
 			String input = bf.readLine();
+			Result rs = new Result();
 			while(input != null) {
-				System.out.println(input);
+				System.out.println(rs.calculateDoomsday(Integer.parseInt(input)));
 				input = bf.readLine();
 			}
 		} catch (IOException e) {
@@ -23,7 +24,6 @@ public class Solution {
 
 
 	static class Result {
-
 
 		public static List<Integer> calculateDoomsday(int area) {
 
