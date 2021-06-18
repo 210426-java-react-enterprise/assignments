@@ -30,8 +30,8 @@ public class solarDoomsDay {
 
 
     public static void main(String[] args) {
-        int test1 = 3614;
-        int[] expected1 = new int[]{3600,9,4,1};
+        int test1 = 12;
+        int[] expected1 = new int[]{9,1,1,1};
         int[] result1 = solution(test1);
         if(Arrays.equals(expected1,result1)){
             System.out.println("Passes Test 1");
@@ -40,13 +40,34 @@ public class solarDoomsDay {
 
         }
 
-        int test2 = 987;
-        int[] expected2 = new int[]{961,25,1};
+        int test2 = 15324;
+        int[] expected2 = new int[]{15129,169,25,1};
         int[] result2 = solution(test2);
         if(Arrays.equals(expected2,result2)){
             System.out.println("Passes Test 2");
         }else{
             System.out.println("Fails Test 2");
+
+        }
+
+
+        int test3 = 3614;
+        int[] expected3 = new int[]{3600,9,4,1};
+        int[] result3 = solution(test3);
+        if(Arrays.equals(expected3,result3)){
+            System.out.println("Passes Test 3");
+        }else{
+            System.out.println("Fails Test 3");
+
+        }
+
+        int test4 = 987;
+        int[] expected4 = new int[]{961,25,1};
+        int[] result4 = solution(test4);
+        if(Arrays.equals(expected4,result4)){
+            System.out.println("Passes Test 4");
+        }else{
+            System.out.println("Fails Test 4");
         }
 
     }
@@ -68,6 +89,9 @@ public class solarDoomsDay {
             newArea = (int) (area - Math.pow(squareRoot,2));
 
 
+            //note: newArea will be passed back into the sqrt(newArea) = value --> (value)^2 = anotherValue.
+            // (i.e sqrt(26) = 5 --> (5)^2 = 25)
+            //note: newArea - anotherValue = newNewArea. i.e 26-25 = 1
             //Step 5: reset value of area to equal newArea.
             area = newArea;
 
