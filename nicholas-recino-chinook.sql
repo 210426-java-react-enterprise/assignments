@@ -42,8 +42,6 @@ select * from "Invoice" where "Total" between 15 and 50;
 select * from "Employee" where "HireDate" between '2003-05-01' and '2004-03-01';
 
 --2.7
-
-
 ALTER TABLE "Invoice"
 DROP CONSTRAINT "FK_InvoiceCustomerId",
 ADD CONSTRAINT "FK_InvoiceCustomerId"
