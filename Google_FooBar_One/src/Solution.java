@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.*;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Jbialon
@@ -14,8 +16,15 @@ public class Solution {
 
     public List<Integer> solution(int area) {
 
+        List<Integer> returnList = new ArrayList<>();
 
-        return new ArrayList<Integer>();
+        while (area >= 1) {
+            Integer sqrt = (int) pow(floor(sqrt(area)), 2);
+            returnList.add(sqrt);
+            area = (area - sqrt);
+        }
+
+        return returnList;
     }
 
 }
