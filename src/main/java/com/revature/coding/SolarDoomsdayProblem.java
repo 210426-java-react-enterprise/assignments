@@ -38,11 +38,8 @@ public class SolarDoomsdayProblem {
         //possible squares range from 1 to 1,000,000
         List<Integer> squares = new ArrayList<>();
         int tracker = area;
-        int next = (int) Math.sqrt(area);
-        int nextSquare = next*next;
-        squares.add(nextSquare);
-
-        tracker -= nextSquare;
+        int next;
+        int nextSquare;
 
         while(tracker >= 1){
             next = (int) Math.sqrt(tracker);
@@ -50,6 +47,7 @@ public class SolarDoomsdayProblem {
             tracker -= nextSquare;
             squares.add(nextSquare);
         }
+
         return squares;
     }
 }
