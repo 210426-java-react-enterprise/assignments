@@ -9,16 +9,14 @@ public class Lambda {
 
 
     public static void main(String[] args) {
-        int[] testInputs = {9, 17, 45, 123, 575};
+        //int[] testInputs = {17};
         List<List<Integer>> answers = new ArrayList<>();
 
-        for(int i = 0; i<testInputs.length; i++){
 
-            answers.add(makeSquares(testInputs[i]));
-        }
-        for(List answer: answers) {
-            System.out.println(answer);
-        }
+            answers.add(makeSquares(27));
+            System.out.println(answers);
+
+
 
     }
 
@@ -30,8 +28,11 @@ public class Lambda {
             if(sqrt - Math.floor(sqrt) == 0){
                 answer.add(counter);
                 counter = testInput - counter;
+                testInput = counter;
+
             }else{
                 counter--;
+
             }
         }
         return answer;
