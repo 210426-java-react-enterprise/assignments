@@ -20,24 +20,29 @@ public class Driver {
         testMap.put(777777, Arrays.asList(881,40,4));//oops, I put the roots in here
         testMap.put(1000000, Arrays.asList(1000));//oops, I put the roots in here
          */
+        testMap.put(32400, Arrays.asList(32400));
+        testMap.put(555555, Arrays.asList(555025,529,1));
+        testMap.put(666666, Arrays.asList(665856,784,25,1));
+        testMap.put(777777, Arrays.asList(776161,1600,16));
+        testMap.put(1000000, Arrays.asList(1000000));
+
 
         SolarSquares solarSquares = new SolarSquares();
 
 
-        Integer test = 555555;
-        List<Integer> solution = solarSquares.findSquares(test);
-        System.out.println("Map: " + testMap.get(test));
-        System.out.println("Sol: " + solution);
+        boolean flag = true;
+        for (Map.Entry<Integer, List<Integer>> entry: testMap.entrySet()) {
+            List<Integer> sol = solarSquares.findSquares(entry.getKey());
+            System.out.println("Map: " + testMap.get(entry.getKey()));
+            System.out.println("Sol: " + sol);
+            if(!(entry.getValue().equals(sol))) {
+                flag = false;
+            }
+        }
 
-//        boolean flag = true;
-//        for (Map.Entry<Integer, List<Integer>> entry: testMap.entrySet()) {
-//            List<Integer> solution = solarSquares.findSquares(entry.getKey());
-//            System.out.println("Map: " + testMap.get(entry.getKey()));
-//            System.out.println("Sol: " + solution);
-//            if(!(entry.getValue().equals(solution))){
-//                flag = false;
-//            }
-//        }
+        if(flag) {
+            System.out.println("\n===============\n Tests passed! \n===============");
+        }
 
     }
 }
