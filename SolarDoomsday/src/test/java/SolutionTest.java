@@ -25,20 +25,20 @@ public class SolutionTest {
     public void test_case1(){
         List<Integer> expected = Arrays.asList(9, 1,1,1);
 
-        List<Integer> actual = new ArrayList<>();
+        List<Integer> actual;
         actual = sut.solution(12);
 
-        Assert.assertSame(actual, expected);
+        Assert.assertTrue(expected.equals(actual));
     }
 
     @Test
     public void test_case2(){
         List<Integer> expected = Arrays.asList(15129, 169,25,1);
 
-        List<Integer> actual = new ArrayList<>();
+        List<Integer> actual;
         actual = sut.solution(15324);
 
-        Assert.assertSame(actual, expected);
+        Assert.assertTrue(expected.equals(actual));
     }
 
 }
