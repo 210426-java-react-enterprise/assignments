@@ -2,6 +2,7 @@ package com.revature;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.After;
@@ -72,7 +73,29 @@ public class SolutionTest {
     public void test5() {
         List<Integer> testData = Arrays.asList(8, 1, 3, 5, 7, 2);
 
-        int expected = 8751;
+        int expected = 87531;
+
+        int actual = sut.encodeMessage(testData);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test6() {
+        List<Integer> testData = Collections.singletonList(4);
+
+        int expected = 0;
+
+        int actual = sut.encodeMessage(testData);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test7() {
+        List<Integer> testData = Arrays.asList(2, 5);
+
+        int expected = 0;
 
         int actual = sut.encodeMessage(testData);
 
