@@ -25,9 +25,6 @@ public class Solution {
                 codeCandidate = newCandidate;
             }
         }
-
         return codeCandidate;
     }
-
-
 }
