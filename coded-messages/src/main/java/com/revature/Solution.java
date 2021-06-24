@@ -10,19 +10,26 @@ public class Solution {
         List<Integer> newList = new ArrayList<>(message);
         Collections.sort(newList);
         int size = newList.size();
-
-        if(message.size() == 1) { //may as well handle this obvious edge case.
+        
+        //may as well handle this obvious edge case.
+        if(message.size() == 1) { 
             if(message.get(0) % 3 == 0) {
                 return message.get(0);
             } else {
                 return 0;
             }
         }
-        int sum = getSumOfList(newList);
+        
+        //compute the sum of the list.
+        //A rule in math is if the total of the digits of a number is divisible by 3, then the number itself is divisible by 3.
+        int sum = getSumOfList(newList); 
         if(sum % 3 == 0) {
             Collections.reverse(newList);
             return joinListAsNumber(newList);
         }
+        
+        //test the sum of all the list with one element removed at a time.
+        //if no sum here is divisible by 3, remove the lowest number of the list and try again.
         int round = 0;
         while (round < size) {
             int newSum = getSumOfList(newList);
