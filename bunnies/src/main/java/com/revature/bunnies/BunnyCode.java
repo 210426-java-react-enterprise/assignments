@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class BunnyCode {
 
-    public Integer Solution(Integer[] L) {
+    public Integer solution(Integer[] L) {
          /*
             This solution is based on the following two realizations:
             1. The code will be divisible by 3 if the number produced by the sum of its digits is divisible by 3
@@ -57,11 +57,13 @@ public class BunnyCode {
             return arrayToNum(sortedL);
         }
 
-        if (difference == 1 && numOfTwos > 1) {
+        if (difference == 1 && numOfTwos > 1 &&  sortedL.size() > 2) {
             int smallest = modulos.lastIndexOf(2);
             sortedL.remove(smallest);
+            modulos.remove(smallest);
             smallest = modulos.lastIndexOf(2);
             sortedL.remove(smallest);
+            modulos.remove(smallest);
             return arrayToNum(sortedL);
         }
 
@@ -72,11 +74,13 @@ public class BunnyCode {
             return arrayToNum(sortedL);
         }
 
-        if (difference == 2 && numOfOnes > 1) {
+        if (difference == 2 && numOfOnes > 1 && sortedL.size() > 2) {
             int smallest = modulos.lastIndexOf(1);
             sortedL.remove(smallest);
+            modulos.remove(smallest);
             smallest = modulos.lastIndexOf(1);
             sortedL.remove(smallest);
+            modulos.remove(smallest);
             return arrayToNum(sortedL);
         }
 
