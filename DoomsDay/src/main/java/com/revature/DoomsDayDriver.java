@@ -1,6 +1,48 @@
 package com.revature;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class DoomsDayDriver {
+    
+    public static void main(String[] args) {
+    
+        int[] test = findingSolarSquares(16);
+        for(int i: test){
+            System.out.println(i);
+        }
+        
+        int[] test2 = findingSolarSquares(15324);
+        for(int i: test2){
+            System.out.println(i);
+        }
+        
+    }
+    
+    
+    public static int[] findingSolarSquares(int totalArea) {
+        
+        //list to add our squares
+        List<Integer> result = new ArrayList<>();
+        
+        //while area is not 0 we will find the next big square and subtract it from total
+        while (totalArea > 0) {
+            
+            int tmpBase = (int) Math.floor(Math.sqrt(totalArea)); // largest possible base that will provide largest area we can make
+            int tmp = (int) Math.pow(tmpBase, 2); //square the largest possible base
+            result.add(tmp);
+            totalArea -= tmp;//subtract out the largest area we can make from totalArea
+        }
+        
+        //convert list to array, array will be size of list
+        int[] finalResult = new int[result.size()];
+        for (int i = 0; i < finalResult.length; i++) {
+            finalResult[i] = result.get(i);
+        }
+        
+        return finalResult;
+    }
 }
 
 
@@ -21,10 +63,12 @@ public class DoomsDayDriver {
                         + 1**2 == 1 perfect
                         + 2**2 == 4 too big
                         
+                        -- ^^ need logic for remaing 3
+                        
                 - while doing these examples, things to consider
                     + one is a base case
                     + what about a perfect square, if it is a perfect square done
-                    + prime numbers will be an issue 
+                   
  */
 
 /*
